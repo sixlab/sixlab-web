@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 1.0.0(2016/1/15)
  */
 @RestController
-@RequestMapping("/")
 public class LoginController {
 
     @Autowired
