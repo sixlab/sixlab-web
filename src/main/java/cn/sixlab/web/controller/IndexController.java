@@ -9,10 +9,11 @@
  */
 package cn.sixlab.web.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +21,13 @@ import java.util.Map;
  * @author 六楼的雨/loki
  * @since 1.0.0(2016/1/15)
  */
-@RestController
+@Controller
 @RequestMapping("/test")
 public class IndexController {
 
     @RequestMapping("/back")
-    public String back() {
+    public String back(HttpServletRequest request) {
+        System.out.println("\n\n\n\n"+request.getServletPath()+"\n\n\n\n");
         return "test";
     }
 

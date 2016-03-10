@@ -15,7 +15,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <description>Spring MVC Configuration</description>
 
     <!-- 对静态资源文件的访问，交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
@@ -63,7 +62,7 @@
     <bean id="freemarkerViewResolver"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
-        <property name="suffix" value=".html"/>
+        <property name="suffix" value=".ftl"/>
         <property name="contentType" value="text/html; charset=UTF-8"/>
         <property name="exposeRequestAttributes" value="false"/>
         <property name="exposeSessionAttributes" value="false"/>
@@ -72,18 +71,18 @@
     </bean>
 
     <!-- FreeMarker Config -->
-    <bean id="MetaInfo" class="cn.sixlab.web.util.directive.MetaInfoDirective"/>
+    <!--<bean id="MetaInfo" class="cn.sixlab.web.util.directive.MetaInfoDirective"/>-->
 
     <bean id="freemarkerConfigurer"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/views/"/>
         <property name="defaultEncoding" value="UTF-8"/>
-        <property name="freemarkerVariables">
-            <map>
-                <!-- 标签 -->
-                <entry key="MetaInfo" value-ref="MetaInfo"/>
-            </map>
-        </property>
+        <!--<property name="freemarkerVariables">-->
+            <!--<map>-->
+                <!--&lt;!&ndash; 标签 &ndash;&gt;-->
+                <!--<entry key="MetaInfo" value-ref="MetaInfo"/>-->
+            <!--</map>-->
+        <!--</property>-->
         <property name="freemarkerSettings">
             <props>
                 <prop key="template_update_delay">0</prop>
@@ -97,7 +96,7 @@
                 <prop key="number_format">0.######</prop>
                 <prop key="whitespace_stripping">true</prop>
                 <prop key="classic_compatible">true</prop>
-                <prop key="auto_import">/common/spring.ftl as i18n,/common/common.html as c</prop>
+                <prop key="auto_import">/common/spring.ftl as i18n,/common/common.ftl as c</prop>
             </props>
         </property>
     </bean>

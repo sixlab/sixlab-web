@@ -12,6 +12,6 @@
     <script src="index.js" type="text/javascript"></script>
 </head>
 <body>
-<button onclick="test();">按钮</button>
+<button onclick="test();">index.jsp</button>
 </body>
 </html>
