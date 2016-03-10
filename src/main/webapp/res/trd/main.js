@@ -1,31 +1,54 @@
 require.config({
-    baseUrl: "js",
     paths: {
-        "jquery": ["http://libs.baidu.com/jquery/2.0.3/jquery", "jquery.min"],
-        "a": "js/a"
+        "jquery": "jquery/jquery.min",
+        "jquery.form": "jquery.form.min",
+        "jquery.validate": "jquery.validate.min",
+        "jquery.validate": "jquery.validate.min"
     },
     shim: {
-        "underscore": {
-            exports: "_"
+        "juicer/juicer.min": {
+            exports: "juicer"
         },
-        "jquery.form":{
-            deps : ["jquery"],
-            exports : "jForm"
-        },
-        "jquery.form":["jquery"]
+        "jquery.sortable/jquery-sortable-min": {
+            deps: ["jquery"],
+            exports:"jQuery.fn.sortable"
+        }
     }
-})
-
-require(['jquery','underscore'], function ($,underscore) {
-    alert($().jquery);
 });
 
-define(['myLib'], function (myLib) {
-    function foo() {
-        myLib.doSomething();
-    }
+function required(location){
+    require("../js/"+location);
+}
 
-    return {
-        foo: foo
-    };
-});
+
+//require.config({
+//    baseUrl: "js",
+//    paths: {
+//        "jquery": ["http://libs.baidu.com/jquery/2.0.3/jquery", "jquery.min"],
+//        "a": "js/a"
+//    },
+//    shim: {
+//        "underscore": {
+//            exports: "_"
+//        },
+//        "jquery.form":{
+//            deps : ["jquery"],
+//            exports : "jForm"
+//        },
+//        "jquery.form":["jquery"]
+//    }
+//})
+//
+//require(['jquery','underscore'], function ($,underscore) {
+//    alert($().jquery);
+//});
+//
+//define(['myLib'], function (myLib) {
+//    function foo() {
+//        myLib.doSomething();
+//    }
+//
+//    return {
+//        foo: foo
+//    };
+//});

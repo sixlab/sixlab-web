@@ -6,6 +6,6 @@
     <script data-main="main" src="${request.contextPath}/res/trd/require.min.js"></script>
 </head>
 <body>
-
+login.ftl
 </body>
 </html>
