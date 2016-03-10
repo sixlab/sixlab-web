@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # sixlab-web
 六楼实验室：<a href="https://sixlab.cn/" target="_blank">https://sixlab.cn/</a> 整站源代码。
 后端为 Java Web 项目。前端为 Vue.js 项目。
@@ -12,3 +13,6 @@ Java Web 项目，主要使用以下技术
 # 前端
 Vue.js 项目，主要使用以下技术
 - <a href="https://cn.vuejs.org/" target="_blank">Vue.js</a>
+=======
+#sixlab-web
+>>>>>>> Initial commit
