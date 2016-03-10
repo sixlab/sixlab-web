@@ -9,3 +9,8 @@
 login.ftl
 </body>
 </html>
+<@page>
+<@head>
+
+</@head>
+</@page>

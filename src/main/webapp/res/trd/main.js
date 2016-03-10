@@ -2,7 +2,6 @@ require.config({
     paths: {
         "jquery": "jquery/jquery.min",
         "jquery.form": "jquery.form.min",
-        "jquery.validate": "jquery.validate.min",
         "jquery.validate": "jquery.validate.min"
     },
     shim: {
