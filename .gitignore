@@ -1,13 +1,17 @@
 *.class
+<<<<<<< HEAD
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
+=======
+>>>>>>> 初始化
 *.jar
 *.war
 *.ear
 
+<<<<<<< HEAD
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
@@ -194,6 +198,19 @@ $RECYCLE.BIN/
 out
 gen### Maven template
 target/
+=======
+hs_err_pid*
+**bin/
+**target/
+**temp/
+.*/
+
+*.tmp
+.*/
+
+sonar-project.properties
+
+>>>>>>> 初始化
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -201,6 +218,7 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
+<<<<<<< HEAD
 .mvn/timing.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
@@ -262,3 +280,7 @@ typings/
 
 # dotenv environment variables file
 .env
+=======
+
+*.iml
+>>>>>>> 初始化
