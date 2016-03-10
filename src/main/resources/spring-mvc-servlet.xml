@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <description>Spring MVC Configuration</description>
+
+    <!-- 对静态资源文件的访问，交给default servlet handler处理 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 启用spring mvc 注解 -->
+    <context:annotation-config/>
+
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven/>
+
+    <!-- 设置使用注解的类所在的jar包 -->
+    <context:component-scan base-package="cn.sixlab.web" />
+
+    <!-- 可通过注解控制事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 完成请求和注解POJO的映射 -->
+
+    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射  -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="interceptors">
+            <list>
+
+            </list>
+        </property>
+    </bean>
+
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>*/*</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+    <bean id="freemarkerViewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="suffix" value=".html"/>
+        <property name="contentType" value="text/html; charset=UTF-8"/>
+        <property name="exposeRequestAttributes" value="false"/>
+        <property name="exposeSessionAttributes" value="false"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="requestContextAttribute" value="request"></property>
+    </bean>
+
+    <!-- FreeMarker Config -->
+    <bean id="MetaInfo" class="cn.sixlab.web.util.directive.MetaInfoDirective"/>
+
+    <bean id="freemarkerConfigurer"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="freemarkerVariables">
+            <map>
+                <!-- 标签 -->
+                <entry key="MetaInfo" value-ref="MetaInfo"/>
+            </map>
+        </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="defaultEncoding">UTF-8</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+                <prop key="number_format">0.######</prop>
+                <prop key="whitespace_stripping">true</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="auto_import">/common/spring.ftl as i18n,/common/common.html as c</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver"></bean>
+
+    <!-- 上传文件拦截，设置最大上传文件大小 5M=5*1024*1024(B)=10485760 bytes -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+          p:defaultEncoding="utf-8">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize">
+            <value>5242880</value>
+        </property>
+    </bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <bean class="cn.sixlab.web.util.interceptor.GlobalInterceptor"/>
+        <bean class="cn.sixlab.web.util.interceptor.PermissionAnnotationInterceptor"/>
+    </mvc:interceptors>
+</beans>
