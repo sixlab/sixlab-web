@@ -1,24 +1,24 @@
 require.config({
     paths: {
+        "darktooltip": "darktooltip/js/jquery.darktooltip.min.js",
         "jquery": "jquery/jquery.min",
-        "jquery.form": "jquery.form.min",
-        "jquery.validate": "jquery.validate.min"
+        "jquery.form": "jquery.form/jquery.form.min",
+        "jquery.sortable": "jquery.sortable/jquery-sortable-min",
+        "jquery.validate": "jquery.validate/jquery.validate.min",
+        "js.cookie": "js.cookie/src/js.cookie.js",
+        "juicer": "juicer/juicer.min",
+        "toastr": "toastr/toastr.min.js",
+        "jquery.webui-popover": "webui-popover/src/jquery.webui-popover.js"
     },
     shim: {
-        "juicer/juicer.min": {
-            exports: "juicer"
-        },
-        "jquery.sortable/jquery-sortable-min": {
-            deps: ["jquery"],
-            exports:"jQuery.fn.sortable"
-        }
+        "darktooltip": ["jquery"],
+        "jquery.sortable": ["jquery"],
+        "juicer": {exports: "juicer"},
+        "jquery.webui-popover": ["jquery"]
     }
 });
 
-function required(location){
-    require("../js/"+location);
-}
-
+window.contextPath = "/";
 
 //require.config({
 //    baseUrl: "js",
@@ -34,7 +34,11 @@ function required(location){
 //            deps : ["jquery"],
 //            exports : "jForm"
 //        },
-//        "jquery.form":["jquery"]
+//        "jquery.form":["jquery"],
+//        "jquery.sortable": {
+//            deps: ["jquery"],
+//            exports:"jQuery.fn.sortable"
+//        }
 //    }
 //})
 //
