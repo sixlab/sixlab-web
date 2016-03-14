@@ -5,13 +5,13 @@ public class SixlabMeta {
 
     private Integer keyId;
 
-    private String key;
+    private String metaKey;
 
-    private String value;
+    private String metaVal;
 
-    private String flag;
+    private String metaFlag;
 
-    private String remark;
+    private String metaRemark;
 
     public Integer getId() {
         return id;
@@ -29,35 +29,35 @@ public class SixlabMeta {
         this.keyId = keyId;
     }
 
-    public String getKey() {
-        return key;
+    public String getMetaKey() {
+        return metaKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setMetaKey(String metaKey) {
+        this.metaKey = metaKey;
     }
 
-    public String getValue() {
-        return value;
+    public String getMetaVal() {
+        return metaVal;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setMetaVal(String metaVal) {
+        this.metaVal = metaVal;
     }
 
-    public String getFlag() {
-        return flag;
+    public String getMetaFlag() {
+        return metaFlag;
     }
 
-    public void setFlag(String flag) {
-        this.flag = flag;
+    public void setMetaFlag(String metaFlag) {
+        this.metaFlag = metaFlag;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getMetaRemark() {
+        return metaRemark;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setMetaRemark(String metaRemark) {
+        this.metaRemark = metaRemark;
     }
 }

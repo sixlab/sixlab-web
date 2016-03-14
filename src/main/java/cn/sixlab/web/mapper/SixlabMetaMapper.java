@@ -1,6 +1,7 @@
 package cn.sixlab.web.mapper;
 
 import cn.sixlab.web.bean.SixlabMeta;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface SixlabMetaMapper {
     int updateByPrimaryKey(SixlabMeta record);
 
     List<SixlabMeta> selectByEq(SixlabMeta record);
+
+    SixlabMeta selectByKey(@Param("metaKey") String metaKey);
 }

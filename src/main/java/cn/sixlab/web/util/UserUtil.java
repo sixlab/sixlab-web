@@ -37,6 +37,7 @@ public class UserUtil {
         Cookie cookie = new Cookie("username", username);
         cookie.setMaxAge(7 * 24 * 60 * 60);
         cookie.setPath("/");
+        cookie.setDomain("sixlab.cn");
 
         HttpServletResponse response = WebUtil.getResponse();
         response.addCookie(cookie);
