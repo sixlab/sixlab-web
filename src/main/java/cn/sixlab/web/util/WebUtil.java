@@ -39,14 +39,25 @@ public class WebUtil {
         return cookies;
     }
 
+    public static String getCookie(String key){
+        Cookie[] cookies = getCookies();
+        String value = "";
+        for (Cookie cookie : cookies) {
+            if(cookie.getName().equals(key)){
+                value = cookie.getValue();
+                break;
+            }
+        }
+        return value;
+    }
+
     public static HttpServletRequest getRequest() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         return request;
     }
 
     public static HttpServletResponse getResponse() {
-        HttpServletResponse response = ((ServletWebRequest) RequestContextHolder.getRequestAttributes()).getResponse();
-
+        HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         return response;
     }
 

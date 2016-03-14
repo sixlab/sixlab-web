@@ -71,18 +71,18 @@
     </bean>
 
     <!-- FreeMarker Config -->
-    <!--<bean id="MetaInfo" class="cn.sixlab.web.util.directive.MetaInfoDirective"/>-->
+    <bean id="MetaInfo" class="cn.sixlab.web.util.directive.MetaInfoDirective"/>
 
     <bean id="freemarkerConfigurer"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
+        <property name="templateLoaderPath" value="/views/"/>
         <property name="defaultEncoding" value="UTF-8"/>
-        <!--<property name="freemarkerVariables">-->
-            <!--<map>-->
-                <!--&lt;!&ndash; 标签 &ndash;&gt;-->
-                <!--<entry key="MetaInfo" value-ref="MetaInfo"/>-->
-            <!--</map>-->
-        <!--</property>-->
+        <property name="freemarkerVariables">
+            <map>
+                <!-- 标签 -->
+                <entry key="MetaInfo" value-ref="MetaInfo"/>
+            </map>
+        </property>
         <property name="freemarkerSettings">
             <props>
                 <prop key="template_update_delay">0</prop>
