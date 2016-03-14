@@ -11,24 +11,31 @@ package cn.sixlab.web.controller;
 
 import cn.sixlab.web.service.LoginService;
 import cn.sixlab.web.util.JsonMap;
+import cn.sixlab.web.util.WebUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author 六楼的雨/loki
  * @since 1.0.0(2016/1/15)
  */
-@RestController
+@Controller
 public class LoginController {
+    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private LoginService service;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
+        HttpServletResponse response = WebUtil.getResponse();
         return "login";
     }
 

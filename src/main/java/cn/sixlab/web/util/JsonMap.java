@@ -19,33 +19,25 @@ import java.util.HashMap;
  * @since 1.0.0(2016/3/9)
  */
 public class JsonMap extends HashMap {
-    public String success = "1";
-    public String msg;
-    public String code;
-    public String flag;
 
-    public String getCode() {
+    private Integer code;
+    private String success = "1";
+    private String message;
+    private String flag;
+
+    public JsonMap() {
+        setSuccess("1");
+        setMessage("");
+        setFlag("");
+    }
+
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
+        put("code", code);
         this.code = code;
-    }
-
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
-        this.flag = flag;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public String getSuccess() {
@@ -53,6 +45,25 @@ public class JsonMap extends HashMap {
     }
 
     public void setSuccess(String success) {
+        put("success", success);
         this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        put("message", message);
+        this.message = message;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        put("flag", flag);
+        this.flag = flag;
     }
 }

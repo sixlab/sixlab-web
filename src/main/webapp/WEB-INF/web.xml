@@ -89,24 +89,20 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
         <url-pattern>*.jsp</url-pattern>
     </servlet-mapping>
 
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/views/error/error500.html</location>
+        <location>/views/error/error500.html</location>
     </error-page>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/views/error/error404.html</location>
+        <location>/views/error/error404.html</location>
     </error-page>
 
     <welcome-file-list>
-        <welcome-file>login</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 </web-app>
