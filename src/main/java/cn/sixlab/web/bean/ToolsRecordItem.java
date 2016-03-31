@@ -5,7 +5,9 @@ public class ToolsRecordItem {
 
     private String itemName;
 
-    private Integer order;
+    private Integer itemOrder;
+
+    private String isDel;
 
     private String remark;
 
@@ -25,12 +27,20 @@ public class ToolsRecordItem {
         this.itemName = itemName;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getItemOrder() {
+        return itemOrder;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setItemOrder(Integer itemOrder) {
+        this.itemOrder = itemOrder;
+    }
+
+    public String getIsDel() {
+        return isDel;
+    }
+
+    public void setIsDel(String isDel) {
+        this.isDel = isDel;
     }
 
     public String getRemark() {

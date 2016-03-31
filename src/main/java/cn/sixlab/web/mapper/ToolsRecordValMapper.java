@@ -2,6 +2,8 @@ package cn.sixlab.web.mapper;
 
 import cn.sixlab.web.bean.ToolsRecordVal;
 
+import java.util.List;
+
 public interface ToolsRecordValMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface ToolsRecordValMapper {
     int updateByPrimaryKeySelective(ToolsRecordVal record);
 
     int updateByPrimaryKey(ToolsRecordVal record);
+
+    List<ToolsRecordVal> queryTimes();
 }

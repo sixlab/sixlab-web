@@ -1,0 +1,28 @@
+#tre .table-header-cell {
+    background-color: tan;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+#tre .table-header-cell {
+    padding-left: 20px;
+}
+
+#tre .table-left {
+    background-color: aliceblue;
+    border-bottom: 1px coral solid;
+}
+
+#tre .table-center {
+    border-bottom: 1px coral solid;
+}
+
+#tre .table-right {
+    background-color: beige;
+    border-bottom: 1px coral solid;
+}
+
+#tre .table-cell {
+    padding: 5px 10px;
+}

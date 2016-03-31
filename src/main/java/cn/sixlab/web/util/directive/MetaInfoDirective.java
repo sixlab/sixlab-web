@@ -32,6 +32,7 @@ public class MetaInfoDirective implements TemplateDirectiveModel {
 
     public static final String meta_type_link = "link";
     public static final String meta_type_links = "links";
+    public static final String meta_type_string = "string";
 
     @Override
     public void execute(Environment env, Map map, TemplateModel[] templateModels,
@@ -41,13 +42,24 @@ public class MetaInfoDirective implements TemplateDirectiveModel {
         switch (type) {
             case meta_type_link:
                 str = link(map);
+                break;
             case meta_type_links:
                 str = links(map);
+                break;
+            case meta_type_string:
+                str = string(map);
+                break;
             default:
                 str = "";
         }
         Writer out = env.getOut();
         out.write(str);
+    }
+
+    private String string(Map map) {
+        String key = Objects.toString(map.get("key"));
+        String value = MetaUtil.getValue(key);
+        return value;
     }
 
     private String links(Map map) {
@@ -67,7 +79,7 @@ public class MetaInfoDirective implements TemplateDirectiveModel {
             str += "<a class='";
             str += className;
             str += "' href='";
-            str += obj.get("name");
+            str += obj.get("href");
             str += "' title='";
             str += obj.get("title");
             str += "' target='";

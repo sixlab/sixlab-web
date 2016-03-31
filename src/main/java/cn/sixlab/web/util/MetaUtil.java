@@ -14,6 +14,7 @@ package cn.sixlab.web.util;
 
 import cn.sixlab.web.bean.SixlabMeta;
 import cn.sixlab.web.mapper.SixlabMetaMapper;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -38,9 +39,28 @@ public class MetaUtil {
         }
     }
 
-    public static String getValue(String key){
+    public static String getValue(String key) {
         init();
         SixlabMeta meta = metaMapper.selectByKey(key);
         return meta.getMetaVal();
+    }
+
+    public static String getAll(String key) {
+        init();
+        SixlabMeta meta = metaMapper.selectByKey(key);
+        String str = " ";
+        if (StringUtils.isNotEmpty(meta.getMetaVal())) {
+            str += meta.getMetaVal();
+            str += " ";
+        }
+        if (StringUtils.isNotEmpty(meta.getMetaFlag())) {
+            str += meta.getMetaFlag();
+            str += " ";
+        }
+        if (StringUtils.isNotEmpty(meta.getMetaRemark())) {
+            str += meta.getMetaRemark();
+            str += " ";
+        }
+        return str;
     }
 }
