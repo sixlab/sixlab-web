@@ -79,4 +79,11 @@
       record_val = #{recordVal,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <select id="queryTimes" resultMap="BaseResultMap">
+        select
+            record_date
+        from tools_record_val
+        GROUP BY record_date ORDER BY record_date,id
+    </select>
 </mapper>

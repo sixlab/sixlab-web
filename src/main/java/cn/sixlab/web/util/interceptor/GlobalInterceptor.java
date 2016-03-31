@@ -9,15 +9,21 @@
  */
 package cn.sixlab.web.util.interceptor;
 
+import cn.sixlab.web.util.MetaUtil;
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 import org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 六楼的雨/loki
@@ -32,10 +38,47 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
         if (handler instanceof ResourceHttpRequestHandler || handler instanceof SockJsHttpRequestHandler) {
             return true;
         }
+
+        if (null != request) {
+            Cookie[] cookies = request.getCookies();
+            if(ArrayUtils.isNotEmpty(cookies)){
+                Map<String, String> map = new HashMap<>();
+                for (Cookie cookie : cookies) {
+                    map.put(cookie.getName(), cookie.getValue());
+                }
+
+                request.setAttribute("cookVal", map);
+            }
+            request.setAttribute("resPath", MetaUtil.getValue("resPath"));
+        }
+
+        logger.warn("\n\n"+ request.getRequestURL().toString()+"\n\n");
+
         //DefaultServletHttpRequestHandler
         if(handler instanceof HandlerMethod){
             HandlerMethod handlerMethod = (HandlerMethod) handler;
         }
         return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+            ModelAndView modelAndView) throws Exception {
+        if (handler instanceof ResourceHttpRequestHandler || handler instanceof SockJsHttpRequestHandler) {
+
+        }else{
+            if (modelAndView != null) {
+                modelAndView.addObject("resPath", MetaUtil.getValue("resPath"));
+            }
+        }
+
+        super.postHandle(request, response, handler, modelAndView);
+        return;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
+            Object handler, Exception ex) throws Exception {
+        super.afterCompletion(request, response, handler, ex);
     }
 }

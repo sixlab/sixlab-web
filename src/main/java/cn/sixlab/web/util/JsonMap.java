@@ -21,12 +21,12 @@ import java.util.HashMap;
 public class JsonMap extends HashMap {
 
     private Integer code;
-    private String success = "1";
+    private boolean success = true;
     private String message;
     private String flag;
 
     public JsonMap() {
-        setSuccess("1");
+        setSuccess(true);
         setMessage("");
         setFlag("");
     }
@@ -40,11 +40,11 @@ public class JsonMap extends HashMap {
         this.code = code;
     }
 
-    public String getSuccess() {
+    public boolean isSuccess() {
         return success;
     }
 
-    public void setSuccess(String success) {
+    public void setSuccess(boolean success) {
         put("success", success);
         this.success = success;
     }
