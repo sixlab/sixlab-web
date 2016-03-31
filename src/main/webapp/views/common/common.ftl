@@ -67,7 +67,7 @@
     <div class="s-bottom-container">
         <a rel="nofollow" target="_blank" href="/login">©</a>2015
         <a href="/">六楼实验室</a> &nbsp;
-        <a rel="nofollow" target="_blank" href="<@MetaInfo type="string" key="site_approve_link"/>"><@MetaInfo type="string" key="site_approve_num"/></a> | 由
+        <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">豫ICP备15033629号</a> | 由
         <a rel="nofollow" target="_blank" href="http://www.aliyun.com/">阿里云</a>
         强力驱动
     </div>
