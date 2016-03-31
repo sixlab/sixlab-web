@@ -1,17 +1,23 @@
 <!doctype html>
 <html>
-<@c.head>
+<@c.head />
+
 <title>Sixlab|六楼的雨</title>
-<meta charset="utf-8">
-</@c.head>
+<script type="text/javascript">
+    require(["main"], function () {
+        require(["js/index", "bootstrap"]);
+    });
+</script>
+<link rel="stylesheet" href="${resPath}/res/css/index.css" type="text/css">
+
 <body>
-
-<#if username>
-<div>已登录，${username}</div>
-<#else>
-<a class="pure-button" href="${request.contextPath}/login">登录</a>
-</#if>
-<a class="pure-button" href="${request.contextPath}/tool/">工具</a>
-
+<@c.header />
+<@c.frame id="index" class="index">
+<div class="index-content text-center">
+    <div class="hello">欢迎<i class="iconfont">&#xe64b;</i>光临</div>
+    <div class="link"><a href="http://blog.sixlab.cn/">去看看博客<i class="iconfont">&#xe681;</i></a></div>
+</div>
+</@c.frame>
+<@c.footer />
 </body>
 </html>

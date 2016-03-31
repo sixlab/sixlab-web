@@ -1,0 +1,55 @@
+body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+#login .container{
+    height: 100%;
+    width: 100%;
+    background: url('../img/road.jpg');
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+
+    position: absolute;
+}
+
+.form-signin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 350px;
+    height: 250px;
+    margin: -150px 0 0 -180px;
+    padding: 10px 40px 0;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+#username {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#password {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
