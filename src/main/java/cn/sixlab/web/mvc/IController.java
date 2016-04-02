@@ -27,8 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/i")
 public class IController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(IController.class);
-    
+    //private static Logger logger = LoggerFactory.getLogger(IController.class);
+
     @Autowired
     private IService service;
     
@@ -39,8 +39,7 @@ public class IController extends BaseController {
      */
     @RequestMapping(value = {"", "/", "/index"})
     public String index(ModelMap modelMap) {
-        logger.info(">>>>>进入 Controller ");
-        
+
         return "i/index";
     }
 }

@@ -16,8 +16,6 @@ import cn.sixlab.web.bean.ToolsRecordItem;
 import cn.sixlab.web.bean.ToolsRecordVal;
 import cn.sixlab.web.mapper.ToolsRecordItemMapper;
 import cn.sixlab.web.mapper.ToolsRecordValMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -31,7 +29,7 @@ import java.util.List;
  */
 @Service
 public class RecordService {
-    private static Logger logger = LoggerFactory.getLogger(RecordService.class);
+    //private static Logger logger = LoggerFactory.getLogger(RecordService.class);
 
     @Autowired
     private ToolsRecordItemMapper itemMapper;

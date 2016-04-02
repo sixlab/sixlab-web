@@ -16,8 +16,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.ServletWebRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,8 +62,31 @@ public class WebUtil {
     }
 
     public static HttpSession getSession() {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        return request.getSession();
+        return getRequest().getSession();
+    }
+
+    public static ServletContext getContext() {
+        return getSession().getServletContext();
+    }
+
+    public static String getVal(String key){
+        ServletContext servletContext = getContext();
+        String value = (String) servletContext.getAttribute(key);
+        if (null == value) {
+            value = MetaUtil.getValue(key);
+            servletContext.setAttribute(key, value);
+        }
+        return value;
+    }
+
+    public static void putVal(String key) {
+        ServletContext servletContext = getContext();
+        servletContext.setAttribute(key, MetaUtil.getValue(key));
+    }
+
+    public static void putVal(String key, String value) {
+        ServletContext servletContext = getContext();
+        servletContext.setAttribute(key, value);
     }
 
     public static <T> T getBean(Class<T> clazz) {

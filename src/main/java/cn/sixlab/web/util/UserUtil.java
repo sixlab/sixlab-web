@@ -41,4 +41,13 @@ public class UserUtil {
         HttpServletResponse response = WebUtil.getResponse();
         response.addCookie(cookie);
     }
+
+    public static void setLogout() {
+        Cookie cookie = new Cookie("username", "");
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+
+        HttpServletResponse response = WebUtil.getResponse();
+        response.addCookie(cookie);
+    }
 }

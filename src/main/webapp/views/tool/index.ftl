@@ -8,7 +8,7 @@
         require(["js/tool/index", "bootstrap"]);
     });
 </script>
-<link rel="stylesheet" href="${resPath}/res/css/tool/index.css" type="text/css">
+<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/index.css" type="text/css">
 
 <body>
 <@c.header />
@@ -22,15 +22,19 @@
     </#if>
 </div>
 
-<div class="pure-g" style="margin-top: 100px;">
-    <div class="pure-u-1-3 pure-u-md-1-4"></div>
-    <div class="pure-u-1-3 pure-u-md-1-2 links">
+<div>
     <#if username>
-        <@MetaInfo type="links" flag="1" class="l-tool-link-login" />
+        <div>
+            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
+            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
+            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
+        </div>
     </#if>
-        <@MetaInfo type="links" flag="0" class="l-tool-link" />
+    <div>
+        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
+        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
+        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
     </div>
-    <div class="pure-u-1-3 pure-u-md-1-4"></div>
 </div>
 
 </@c.frame>

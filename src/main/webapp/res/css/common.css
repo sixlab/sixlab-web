@@ -68,6 +68,29 @@ body{
     background-color: #45B6F7;
 }
 
+body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.content-container{
+    border: 1px solid #4cae4c;
+    border-radius: 10px;
+    margin: 50px 0 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.s-img-bg {
+    background: url('../img/road.jpg');
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
 @font-face {
     font-family: 'iconfont';
     src: url('//at.alicdn.com/t/font_1459331594_7841144.eot'); /* IE9*/
