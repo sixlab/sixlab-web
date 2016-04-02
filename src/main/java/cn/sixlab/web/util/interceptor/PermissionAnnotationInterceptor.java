@@ -14,13 +14,12 @@ package cn.sixlab.web.util.interceptor;
 
 import cn.sixlab.web.util.UserUtil;
 import cn.sixlab.web.util.annotation.Login;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
-import org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +35,7 @@ public class PermissionAnnotationInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request,
             HttpServletResponse response, Object handler) throws Exception {
-        if (handler instanceof ResourceHttpRequestHandler || handler instanceof SockJsHttpRequestHandler) {
+        if (handler instanceof ResourceHttpRequestHandler ) {
             return true;
         }
         //DefaultServletHttpRequestHandler

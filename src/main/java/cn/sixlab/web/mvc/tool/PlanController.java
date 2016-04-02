@@ -11,8 +11,6 @@ package cn.sixlab.web.mvc.tool;
 
 import cn.sixlab.web.util.BaseController;
 import cn.sixlab.web.util.annotation.Login;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/tool/plan")
 public class PlanController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(PlanController.class);
+    //private static Logger logger = LoggerFactory.getLogger(PlanController.class);
 
     @Autowired
     private PlanService service;

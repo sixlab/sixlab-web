@@ -1,6 +1,19 @@
 package cn.sixlab.web.bean;
 
+import java.util.UUID;
+
 public class SixlabMeta {
+
+    public static void main(String[] args) {
+        System.out.println(UUID.randomUUID().toString());
+        System.out.println(UUID.randomUUID().toString().substring(10));
+        System.out.println(UUID.randomUUID().toString().substring(20));
+        System.out.println(UUID.randomUUID().toString().substring(30));
+        System.out.println(UUID.randomUUID().toString().substring(1));
+        System.out.println(UUID.randomUUID().toString().substring(1));
+        System.out.println(UUID.randomUUID().toString().substring(1));
+        System.out.println(UUID.randomUUID().toString().substring(1));
+    }
     private Integer id;
 
     private Integer keyId;

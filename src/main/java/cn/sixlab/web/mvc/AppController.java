@@ -13,8 +13,6 @@
 package cn.sixlab.web.mvc;
 
 import cn.sixlab.web.util.BaseController;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/app")
 public class AppController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(AppController.class);
-    
+    //private static Logger logger = LoggerFactory.getLogger(AppController.class);
+
     @Autowired
     private AppService service;
     
@@ -39,8 +37,7 @@ public class AppController extends BaseController {
      */
     @RequestMapping(value = {"", "/", "/index"})
     public String index(ModelMap modelMap) {
-        logger.info(">>>>>进入 Controller ");
-        
+
         return "app/index";
     }
 }

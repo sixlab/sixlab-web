@@ -12,8 +12,6 @@ package cn.sixlab.web.mvc;
 import cn.sixlab.web.util.BaseController;
 import cn.sixlab.web.util.JsonMap;
 import cn.sixlab.web.util.annotation.Finish;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,29 +25,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class RootController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(RootController.class);
+    //private static Logger logger = LoggerFactory.getLogger(RootController.class);
 
     @Autowired
     private RootService service;
 
-    @RequestMapping(value = {"/", "/index"})
+    @RequestMapping(value = {"", "/", "/index"})
     @Finish
     public String index(ModelMap model) {
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @Finish
     public String login() {
         return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
+    @Finish
     public JsonMap login(String username, String password) {
         JsonMap json = new JsonMap();
 
         service.login(json, username, password);
 
         return json;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @Finish
+    public String logout() {
+
+        service.logout();
+
+        return "redirect:/index";
     }
 }

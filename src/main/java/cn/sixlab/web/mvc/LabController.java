@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/lab")
 public class LabController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(LabController.class);
+    //private static Logger logger = LoggerFactory.getLogger(LabController.class);
     
     @Autowired
     private LabService service;
@@ -39,8 +39,7 @@ public class LabController extends BaseController {
      */
     @RequestMapping(value = {"", "/", "/index"})
     public String index(ModelMap modelMap) {
-        logger.info(">>>>>进入 Controller ");
-        
+
         return "lab/index";
     }
 }
