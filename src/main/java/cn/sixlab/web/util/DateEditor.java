@@ -12,12 +12,14 @@
  */
 package cn.sixlab.web.util;
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.util.StringUtils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author 六楼的雨/loki
@@ -36,11 +38,48 @@ public class DateEditor extends CustomDateEditor {
             setValue(null);
         } else {
             try {
-                setValue(DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss"));
+                //setValue(DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss"));
+
+                Date date = parseDateWithLeniency(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss");
+                setValue(date);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static Date parseDateWithLeniency(final String str, final String... parsePatterns) throws ParseException {
+        if (str == null || parsePatterns == null) {
+            throw new IllegalArgumentException("Date and Patterns must not be null");
+        }
+
+        SimpleDateFormat parser = new SimpleDateFormat();
+
+        final ParsePosition pos = new ParsePosition(0);
+        for (final String parsePattern : parsePatterns) {
+
+            String pattern = parsePattern;
+
+            // LANG-530 - need to make sure 'ZZ' output doesn't get passed to SimpleDateFormat
+            if (parsePattern.endsWith("ZZ")) {
+                pattern = pattern.substring(0, pattern.length() - 1);
+            }
+
+            parser.applyPattern(pattern);
+            pos.setIndex(0);
+
+            String str2 = str;
+            // LANG-530 - need to make sure 'ZZ' output doesn't hit SimpleDateFormat as it will ParseException
+            if (parsePattern.endsWith("ZZ")) {
+                str2 = str.replaceAll("([-+][0-9][0-9]):([0-9][0-9])$", "$1$2");
+            }
+
+            final Date date = parser.parse(str2, pos);
+            if (date != null && pos.getIndex() == str2.length()) {
+                return date;
+            }
+        }
+        throw new ParseException("Unable to parse the date: " + str, -1);
     }
 
 }

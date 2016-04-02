@@ -11,10 +11,7 @@ package cn.sixlab.web.mvc.tool;
 
 import cn.sixlab.web.util.BaseController;
 import cn.sixlab.web.util.JsonMap;
-import cn.sixlab.web.util.annotation.Finish;
 import cn.sixlab.web.util.annotation.Login;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,7 +28,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("/tool/record")
 public class RecordController extends BaseController {
-    private static Logger logger = LoggerFactory.getLogger(RecordController.class);
+    //private static Logger logger = LoggerFactory.getLogger(RecordController.class);
 
     @Autowired
     private RecordService service;
@@ -50,6 +47,7 @@ public class RecordController extends BaseController {
     }
 
     @Login
+    @RequestMapping("/compare/{date1}/{date2}")
     public String compare(@PathVariable Date date1, @PathVariable Date date2,ModelMap model) {
         service.compare(date1, date2, model);
         return "tool/record/compare";
@@ -78,6 +76,7 @@ public class RecordController extends BaseController {
     public JsonMap del(ModelMap model) {
         JsonMap json = new JsonMap();
 
+        
 
         return json;
     }
