@@ -8,18 +8,15 @@
  * http://sixlab.cn/
  * 
  * @author 六楼的雨/loki
- * @since 1.0.0(2016/3/31)
+ * @since 1.0.0(2016/4/2)
  */
-package cn.sixlab.web.mvc;
-
-import org.springframework.stereotype.Service;
+package cn.sixlab.web.util;
 
 /**
  * @author 六楼的雨/loki
- * @since 1.0.0(2016/3/31)
+ * @since 1.0.0(2016/4/2)
  */
-@Service
-public class LabService {
-    //private static Logger logger = LoggerFactory.getLogger(LabService.class);
-    
+public class Meta {
+    public static final String HIS_TYPE_MOVIE = "10";
+    public static final String HIS_TYPE_SHOW = "20";
 }

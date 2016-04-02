@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sixlab.web.mapper.ToolsMovieMapper" >
+  <resultMap id="BaseResultMap" type="cn.sixlab.web.bean.ToolsMovie" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="movie_name" property="movieName" jdbcType="VARCHAR" />
+    <result column="produce_year" property="produceYear" jdbcType="VARCHAR" />
+    <result column="director" property="director" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="view_date" property="viewDate" jdbcType="DATE" />
+    <result column="douban_key" property="doubanKey" jdbcType="VARCHAR" />
+    <result column="douban_score" property="doubanScore" jdbcType="DOUBLE" />
+    <result column="douban_info" property="doubanInfo" jdbcType="VARCHAR" />
+    <result column="info_status" property="infoStatus" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, movie_name, produce_year, director, remark, view_date, douban_key, douban_score, 
+    douban_info, info_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tools_movie
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tools_movie
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.sixlab.web.bean.ToolsMovie" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tools_movie (movie_name, produce_year, director, 
+      remark, view_date, douban_key, 
+      douban_score, douban_info, info_status
+      )
+    values (#{movieName,jdbcType=VARCHAR}, #{produceYear,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{viewDate,jdbcType=DATE}, #{doubanKey,jdbcType=VARCHAR}, 
+      #{doubanScore,jdbcType=DOUBLE}, #{doubanInfo,jdbcType=VARCHAR}, #{infoStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.sixlab.web.bean.ToolsMovie" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tools_movie
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="movieName != null" >
+        movie_name,
+      </if>
+      <if test="produceYear != null" >
+        produce_year,
+      </if>
+      <if test="director != null" >
+        director,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="viewDate != null" >
+        view_date,
+      </if>
+      <if test="doubanKey != null" >
+        douban_key,
+      </if>
+      <if test="doubanScore != null" >
+        douban_score,
+      </if>
+      <if test="doubanInfo != null" >
+        douban_info,
+      </if>
+      <if test="infoStatus != null" >
+        info_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="movieName != null" >
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="produceYear != null" >
+        #{produceYear,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null" >
+        #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="viewDate != null" >
+        #{viewDate,jdbcType=DATE},
+      </if>
+      <if test="doubanKey != null" >
+        #{doubanKey,jdbcType=VARCHAR},
+      </if>
+      <if test="doubanScore != null" >
+        #{doubanScore,jdbcType=DOUBLE},
+      </if>
+      <if test="doubanInfo != null" >
+        #{doubanInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="infoStatus != null" >
+        #{infoStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.sixlab.web.bean.ToolsMovie" >
+    update tools_movie
+    <set >
+      <if test="movieName != null" >
+        movie_name = #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="produceYear != null" >
+        produce_year = #{produceYear,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null" >
+        director = #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="viewDate != null" >
+        view_date = #{viewDate,jdbcType=DATE},
+      </if>
+      <if test="doubanKey != null" >
+        douban_key = #{doubanKey,jdbcType=VARCHAR},
+      </if>
+      <if test="doubanScore != null" >
+        douban_score = #{doubanScore,jdbcType=DOUBLE},
+      </if>
+      <if test="doubanInfo != null" >
+        douban_info = #{doubanInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="infoStatus != null" >
+        info_status = #{infoStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.sixlab.web.bean.ToolsMovie" >
+    update tools_movie
+    set movie_name = #{movieName,jdbcType=VARCHAR},
+      produce_year = #{produceYear,jdbcType=VARCHAR},
+      director = #{director,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      view_date = #{viewDate,jdbcType=DATE},
+      douban_key = #{doubanKey,jdbcType=VARCHAR},
+      douban_score = #{doubanScore,jdbcType=DOUBLE},
+      douban_info = #{doubanInfo,jdbcType=VARCHAR},
+      info_status = #{infoStatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="queryKeyword" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tools_movie
+        where movie_name LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
+        director LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
+        remark LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
+        douban_info LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%')
+    </select>
+</mapper>

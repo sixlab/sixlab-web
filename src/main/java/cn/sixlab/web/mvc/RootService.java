@@ -6,7 +6,7 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- * 
+ *
  * @author 六楼的雨/loki
  * @since 1.0.0(2016/3/9)
  */
@@ -16,11 +16,9 @@ import cn.sixlab.web.bean.SixlabMeta;
 import cn.sixlab.web.mapper.SixlabMetaMapper;
 import cn.sixlab.web.util.JsonMap;
 import cn.sixlab.web.util.UserUtil;
-import org.apache.commons.collections4.CollectionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -30,7 +28,7 @@ import java.util.List;
  */
 @Service
 public class RootService {
-    private static Logger logger = LoggerFactory.getLogger(RootService.class);
+    //private static Logger logger = LoggerFactory.getLogger(RootService.class);
 
     @Autowired
     private SixlabMetaMapper metaMapper;
@@ -45,7 +43,7 @@ public class RootService {
             jsonMap.setSuccess(false);
             jsonMap.setMessage("用户名不存在。");
             jsonMap.setCode(1);
-        }else if(password.equals(metaList.get(0).getMetaFlag())){
+        } else if (password.equals(metaList.get(0).getMetaFlag())) {
             UserUtil.setLogin(username);
             jsonMap.setSuccess(true);
         } else {
@@ -53,5 +51,9 @@ public class RootService {
             jsonMap.setMessage("密码错误。");
             jsonMap.setCode(1);
         }
+    }
+
+    public void logout() {
+        UserUtil.setLogout();
     }
 }

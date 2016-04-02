@@ -8,18 +8,18 @@
  * http://sixlab.cn/
  * 
  * @author 六楼的雨/loki
- * @since 1.0.0(2016/3/31)
+ * @since 1.0.0(2016/4/2)
  */
-package cn.sixlab.web.mvc;
+package cn.sixlab.web.mvc.tool;
 
 import org.springframework.stereotype.Service;
 
 /**
  * @author 六楼的雨/loki
- * @since 1.0.0(2016/3/31)
+ * @since 1.0.0(2016/4/2)
  */
 @Service
-public class LabService {
-    //private static Logger logger = LoggerFactory.getLogger(LabService.class);
+public class ShowService {
+    //private static Logger logger = LoggerFactory.getLogger(ShowService.class);
     
 }

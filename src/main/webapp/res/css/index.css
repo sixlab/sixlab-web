@@ -1,21 +1,4 @@
-/*中间第一块内容*/
-#index {
-    height: 100%;
-    width: 100%;
-    background: url('../img/road.jpg');
-    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
-    -moz-background-size: 100% 100%;
-    background-size: 100% 100%;
 
-    position: absolute;
-}
-
-body {
-    height: 100%;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-}
 
 .index-content{
     position: absolute;
@@ -25,7 +8,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     width: 250px;
     height: 100px;
-    margin: -100px 0 0 -130px;
+    margin: -120px 0 0 -130px;
     padding-left: 40px;
     padding-right: 40px;
 }

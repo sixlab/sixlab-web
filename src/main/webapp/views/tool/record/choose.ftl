@@ -8,7 +8,7 @@
         require(["js/tool/record/choose", "bootstrap"]);
     });
 </script>
-<link rel="stylesheet" href="${resPath}/res/css/tool/record/choose.css" type="text/css">
+<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/record/choose.css" type="text/css">
 
 <body>
 <@c.header />
