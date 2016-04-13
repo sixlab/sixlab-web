@@ -8,7 +8,7 @@
         require(["js/tool/record/compare", "bootstrap"]);
     });
 </script>
-<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/record/compare.css" type="text/css">
+<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/record/compare.css?v=${Application["resVersion"]}" type="text/css">
 
 <body>
 <@c.header />
