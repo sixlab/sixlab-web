@@ -65,7 +65,8 @@ body{
 
 /*主题色*/
 .s-theme-color {
-    background-color: #45B6F7;
+    background-color: #666;
+    /*background-color: #45B6F7;*/
 }
 
 body {
@@ -76,8 +77,8 @@ body {
 }
 
 .content-container{
-    border: 1px solid #4cae4c;
-    border-radius: 10px;
+    /*border: 1px solid #4cae4c;*/
+    /*border-radius: 10px;*/
     margin: 50px 0 30px;
     height: 100%;
     width: 100%;
@@ -89,6 +90,12 @@ body {
     -moz-background-size: 100% 100%;
     background-size: 100% 100%;
     position: absolute;
+}
+
+.s-img-bg-trans{
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
 }
 
 @font-face {

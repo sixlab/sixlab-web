@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sixlab.web.mapper.ToolsShowMapper" >
+  <resultMap id="BaseResultMap" type="cn.sixlab.web.bean.ToolsShow" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="show_name" property="showName" jdbcType="VARCHAR" />
+    <result column="show_season" property="showSeason" jdbcType="INTEGER" />
+    <result column="show_episode" property="showEpisode" jdbcType="INTEGER" />
+    <result column="show_status" property="showStatus" jdbcType="VARCHAR" />
+    <result column="view_status" property="viewStatus" jdbcType="VARCHAR" />
+    <result column="tv" property="tv" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="douban_key" property="doubanKey" jdbcType="VARCHAR" />
+    <result column="begin_date" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="finish_date" property="finishDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, show_name, show_season, show_episode, show_status, view_status, tv, remark, douban_key,
+    begin_date, finish_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from tools_show
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tools_show
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.sixlab.web.bean.ToolsShow" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tools_show (show_name, show_season, show_episode,
+      show_status, view_status, tv,
+      remark, douban_key, begin_date,
+      finish_date, update_date)
+    values (#{showName,jdbcType=VARCHAR}, #{showSeason,jdbcType=INTEGER}, #{showEpisode,jdbcType=INTEGER},
+      #{showStatus,jdbcType=VARCHAR}, #{viewStatus,jdbcType=VARCHAR}, #{tv,jdbcType=VARCHAR},
+      #{remark,jdbcType=VARCHAR}, #{doubanKey,jdbcType=VARCHAR}, #{beginDate,jdbcType=TIMESTAMP},
+      #{finishDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.sixlab.web.bean.ToolsShow" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tools_show
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="showName != null" >
+        show_name,
+      </if>
+      <if test="showSeason != null" >
+        show_season,
+      </if>
+      <if test="showEpisode != null" >
+        show_episode,
+      </if>
+      <if test="showStatus != null" >
+        show_status,
+      </if>
+      <if test="viewStatus != null" >
+        view_status,
+      </if>
+      <if test="tv != null" >
+        tv,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="doubanKey != null" >
+        douban_key,
+      </if>
+      <if test="beginDate != null" >
+        begin_date,
+      </if>
+      <if test="finishDate != null" >
+        finish_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="showName != null" >
+        #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="showSeason != null" >
+        #{showSeason,jdbcType=INTEGER},
+      </if>
+      <if test="showEpisode != null" >
+        #{showEpisode,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null" >
+        #{showStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="viewStatus != null" >
+        #{viewStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null" >
+        #{tv,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="doubanKey != null" >
+        #{doubanKey,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDate != null" >
+        #{finishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.sixlab.web.bean.ToolsShow" >
+    update tools_show
+    <set >
+      <if test="showName != null" >
+        show_name = #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="showSeason != null" >
+        show_season = #{showSeason,jdbcType=INTEGER},
+      </if>
+      <if test="showEpisode != null" >
+        show_episode = #{showEpisode,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null" >
+        show_status = #{showStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="viewStatus != null" >
+        view_status = #{viewStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null" >
+        tv = #{tv,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="doubanKey != null" >
+        douban_key = #{doubanKey,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        begin_date = #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDate != null" >
+        finish_date = #{finishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.sixlab.web.bean.ToolsShow" >
+    update tools_show
+    set show_name = #{showName,jdbcType=VARCHAR},
+      show_season = #{showSeason,jdbcType=INTEGER},
+      show_episode = #{showEpisode,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=VARCHAR},
+      view_status = #{viewStatus,jdbcType=VARCHAR},
+      tv = #{tv,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      douban_key = #{doubanKey,jdbcType=VARCHAR},
+      begin_date = #{beginDate,jdbcType=TIMESTAMP},
+      finish_date = #{finishDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="queryKeyword" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tools_show
+        where show_name LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
+        tv LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
+        remark LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%')
+    </select>
+</mapper>

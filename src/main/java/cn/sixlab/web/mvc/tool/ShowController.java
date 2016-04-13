@@ -12,11 +12,17 @@
  */
 package cn.sixlab.web.mvc.tool;
 
+import cn.sixlab.web.bean.ToolsShow;
 import cn.sixlab.web.util.BaseController;
+import cn.sixlab.web.util.JsonMap;
+import cn.sixlab.web.util.annotation.Finish;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author 六楼的雨/loki
@@ -25,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/tool/show")
 public class ShowController extends BaseController {
-    //private static Logger logger = LoggerFactory.getLogger(ShowController.class);
+    private static Logger logger = LoggerFactory.getLogger(ShowController.class);
     
     @Autowired
     private ShowService service;
@@ -39,5 +45,72 @@ public class ShowController extends BaseController {
     public String index(ModelMap modelMap) {
         
         return "tool/show/index";
+    }
+
+    @RequestMapping("/search")
+    @ResponseBody
+    @Finish
+    public JsonMap search(String keyword) {
+        JsonMap json = new JsonMap();
+        logger.error("\n\n\n参数:" + keyword + "\n\n\n");
+
+        service.search(json, keyword);
+
+        return json;
+    }
+
+    @RequestMapping("/season/add")
+    @ResponseBody
+    @Finish
+    public JsonMap seasonAdd(int id) {
+        JsonMap json = new JsonMap();
+
+        service.seasonAdd(json, id);
+
+        return json;
+    }
+
+    @RequestMapping("/episode/add")
+    @ResponseBody
+    @Finish
+    public JsonMap episodeAdd(int id) {
+        JsonMap json = new JsonMap();
+
+        service.episodeAdd(json, id);
+
+        return json;
+    }
+
+    @RequestMapping("/end")
+    @ResponseBody
+    @Finish
+    public JsonMap end(int id) {
+        JsonMap json = new JsonMap();
+
+        service.end(json, id);
+
+        return json;
+    }
+
+    @RequestMapping("/finish")
+    @ResponseBody
+    @Finish
+    public JsonMap finish(int id) {
+        JsonMap json = new JsonMap();
+
+        service.finish(json, id);
+
+        return json;
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    @Finish
+    public JsonMap add(ToolsShow toolsShow) {
+        JsonMap json = new JsonMap();
+
+        service.add(json, toolsShow);
+
+        return json;
     }
 }

@@ -61,4 +61,15 @@ public class RootController extends BaseController {
 
         return "redirect:/index";
     }
+
+    @RequestMapping("/change")
+    @ResponseBody
+    @Finish
+    public JsonMap change(String keyword, String value) {
+        JsonMap json = new JsonMap();
+
+        service.change(json, keyword, value);
+
+        return json;
+    }
 }

@@ -58,6 +58,8 @@
         <div class="navbar-header">
             <a href="/" class="navbar-brand">Sixlab</a>
         </div>
+        <#--<a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>-->
+        <#--<a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>-->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/">首页</a></li>

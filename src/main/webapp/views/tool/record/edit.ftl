@@ -8,7 +8,7 @@
         require(["js/tool/record/edit", "bootstrap"]);
     });
 </script>
-<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/record/edit.css" type="text/css">
+<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/record/edit.css?v=${Application["resVersion"]}" type="text/css">
 
 <body>
 <@c.header />
