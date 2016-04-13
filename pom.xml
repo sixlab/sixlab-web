@@ -212,23 +212,52 @@
             <id>local</id>
             <properties>
                 <profiles.active>local</profiles.active>
-                <pom.jdbc.url>127.0.0.1:3306/sixlab</pom.jdbc.url>
+                <!--<pom.jdbc.url>127.0.0.1:3306/sixlab</pom.jdbc.url>-->
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <build>
+                <finalName>webapp</finalName>
+            </build>
         </profile>
         <profile>
             <id>aliyun</id>
             <properties>
                 <profiles.active>aliyun</profiles.active>
-                <pom.jdbc.url>10.252.28.233:3306/sixlab</pom.jdbc.url>
+                <!--<pom.jdbc.url>10.252.28.233:3306/sixlab</pom.jdbc.url>-->
             </properties>
+            <build>
+                <finalName>ROOT</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>copy-war-2-webapp</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <tasks>
+                                        <copydir
+                                                src="${project.basedir}/src/main/webapp/res"
+                                                dest="D:/soft_space/IdeaProjects/sixlab/sixlab-cdn/resources/res">
+                                        </copydir>
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
     <build>
-        <finalName>ROOT</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
