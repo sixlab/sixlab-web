@@ -74,7 +74,7 @@ public class PermissionAnnotationInterceptor extends HandlerInterceptorAdapter {
                     }
                 }
             }
-            result += ("".equals(paraStr) ? "" : ("\n\n参数值：" + paraStr));
+            result += ("".equals(paraStr) ? "" : ("\n\n参数值：[" + paraStr+"]"));
             result += ("".equals(emptyStr) ? "" : ("\n\nEmpty值为：" + emptyStr));
         } catch (Exception e) {
             result += "输出URL参数错误";
@@ -82,6 +82,6 @@ public class PermissionAnnotationInterceptor extends HandlerInterceptorAdapter {
 
         result += "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n";
 
-        logger.debug(result);
+        logger.warn(result);
     }
 }

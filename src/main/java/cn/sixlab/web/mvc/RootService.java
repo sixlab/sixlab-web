@@ -16,6 +16,7 @@ import cn.sixlab.web.bean.SixlabMeta;
 import cn.sixlab.web.mapper.SixlabMetaMapper;
 import cn.sixlab.web.util.JsonMap;
 import cn.sixlab.web.util.UserUtil;
+import cn.sixlab.web.util.WebUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -55,5 +56,10 @@ public class RootService {
 
     public void logout() {
         UserUtil.setLogout();
+    }
+
+    public void change(JsonMap json, String keyword, String value) {
+        json.put("old",WebUtil.getVal(keyword));
+        WebUtil.putVal(keyword, value);
     }
 }

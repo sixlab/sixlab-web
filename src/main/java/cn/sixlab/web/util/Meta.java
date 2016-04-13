@@ -17,6 +17,19 @@ package cn.sixlab.web.util;
  * @since 1.0.0(2016/4/2)
  */
 public class Meta {
+    //历史记录类型
+    public static final String HIS_TYPE_SELF = "00";
     public static final String HIS_TYPE_MOVIE = "10";
     public static final String HIS_TYPE_SHOW = "20";
+
+    //Show 播放状态
+    public static final String SHOW_STATUS_WILL = "10";
+    public static final String SHOW_STATUS_ING = "20";
+    public static final String SHOW_STATUS_PENDING = "30";
+    public static final String SHOW_STATUS_END = "40";
+
+    //Show 观看状态
+    public static final String SHOW_V_STATUS_WILL = "10";
+    public static final String SHOW_V_STATUS_ING = "20";
+    public static final String SHOW_V_STATUS_FINISH = "30";
 }

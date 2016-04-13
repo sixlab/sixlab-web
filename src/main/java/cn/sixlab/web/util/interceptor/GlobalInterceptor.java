@@ -39,8 +39,8 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
 
-        if (null != request) {
-            logger.warn("\n\n" + request.getRequestURL().toString() + "\n\n");
+        //if (null != request) {
+        //    logger.warn("\n\n" + request.getRequestURL().toString() + "\n\n");
         //    Cookie[] cookies = request.getCookies();
         //    if(ArrayUtils.isNotEmpty(cookies)){
         //        Map<String, String> map = new HashMap<>();
@@ -49,7 +49,7 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
         //        }
         //        request.setAttribute("cookVal", map);
         //    }
-        }
+        //}
 
 
         //
