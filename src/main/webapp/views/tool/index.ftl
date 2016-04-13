@@ -8,7 +8,7 @@
         require(["js/tool/index", "bootstrap"]);
     });
 </script>
-<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/index.css" type="text/css">
+<link rel="stylesheet" href="${Application["resPath"]}/res/css/tool/index.css?v=${Application["resVersion"]}" type="text/css">
 
 <body>
 <@c.header />
@@ -24,16 +24,16 @@
 
 <div>
     <#if username>
-        <div>
-            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
-            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
-            <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-login">record</a>
-        </div>
+    <div>
+        <div><a href="/tool/record/" title="record" target="_blank" class="l-tool-link l-tool-link-login">record</a></div>
+        <div><a href="/tool/movie/" title="movie" target="_blank" class="l-tool-link l-tool-link-login">movie</a></div>
+        <div><a href="/tool/show/" title="show" target="_blank" class="l-tool-link l-tool-link-login">show</a></div>
+        <div><a href="/tool/plan/" title="plan" target="_blank" class="l-tool-link l-tool-link-login">plan</a></div>
+    </div>
     </#if>
     <div>
-        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
-        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
-        <a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a>
+        <div><a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a></div>
+        <div><a href="/tool/record/" title="Record" target="_blank" class="l-tool-link l-tool-link-public">record</a></div>
     </div>
 </div>
 

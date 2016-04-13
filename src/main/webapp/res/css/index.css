@@ -1,33 +1,38 @@
 
-
 .index-content{
     position: absolute;
     left: 50%;
     top: 50%;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 250px;
-    height: 100px;
-    margin: -120px 0 0 -130px;
-    padding-left: 40px;
-    padding-right: 40px;
+    /*border-radius: 20px;*/
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    width: 450px;
+    height: 140px;
+    margin: -120px 0 0 -230px;
+    /*padding-left: 40px;*/
+    /*padding-right: 40px;*/
 }
 
 .hello {
-    font-size: 20px;
-    height: 40px;
-    line-height: 40px;
+    font-weight: bolder;
     color: #FFFFFF;
+    font-size: 60px;
+    height: 60px;
+    line-height: 60px;
 }
 
 .link {
-    height: 60px;
+    font-weight: bolder;
+    color: #FFFFFF;
+    font-size: 80px;
+    height: 80px;
+    line-height: 80px;
 }
 
-.link a {
-    font-size: 24px;
-    color: #FFFFFF;
+#icon-link {
     font-weight: bolder;
+    color: #FFFFFF;
+    font-size: 50px;
+    text-decoration: none;
 }
 
 .link a:hover {

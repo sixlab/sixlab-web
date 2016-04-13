@@ -16,6 +16,8 @@ import cn.sixlab.web.bean.ToolsMovie;
 import cn.sixlab.web.util.BaseController;
 import cn.sixlab.web.util.JsonMap;
 import cn.sixlab.web.util.annotation.Finish;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,7 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/tool/movie")
 public class MovieController extends BaseController {
-    //private static Logger logger = LoggerFactory.getLogger(MovieController.class);
+    private static Logger logger = LoggerFactory.getLogger(MovieController.class);
 
     @Autowired
     private MovieService service;
@@ -61,6 +63,7 @@ public class MovieController extends BaseController {
     @Finish
     public JsonMap search(String keyword) {
         JsonMap json = new JsonMap();
+        logger.error("\n\n\n参数:"+keyword+"\n\n\n");
 
         service.search(json, keyword);
 
