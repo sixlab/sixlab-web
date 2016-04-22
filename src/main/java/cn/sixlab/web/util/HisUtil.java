@@ -19,19 +19,26 @@ import cn.sixlab.web.mapper.ToolsHisEventMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
  * @author 六楼的雨/loki
  * @since 1.0.0(2016/4/2)
  */
 @Component
 public class HisUtil {
+    //历史记录类型
+    public static final String HIS_TYPE_SELF = "00";
+    public static final String HIS_TYPE_MOVIE = "10";
+    public static final String HIS_TYPE_SHOW = "20";
+    public static final String HIS_TYPE_POST = "30";
 
     @Autowired
     private ToolsHisEventMapper toolsHisEventMapper;
 
     public void sawMovie(ToolsMovie toolsMovie) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
-        toolsHisEvent.setEventType(Meta.HIS_TYPE_MOVIE);
+        toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
         toolsHisEvent.setKeyId(toolsMovie.getId());
         toolsHisEvent.setEvent("观看了电影《" + toolsMovie.getMovieName() + "》");
         toolsHisEvent.setEventDate(toolsMovie.getViewDate());
@@ -40,7 +47,7 @@ public class HisUtil {
 
     public void beginShow(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
-        toolsHisEvent.setEventType(Meta.HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEvent("开始观看电视剧《" + toolsShow.getShowName() + "》");
         toolsHisEvent.setEventDate(toolsShow.getBeginDate());
@@ -50,7 +57,7 @@ public class HisUtil {
     public void addSeason(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
 
-        toolsHisEvent.setEventType(Meta.HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEventDate(toolsShow.getBeginDate());
         toolsHisEvent.setEvent("开始观看电视剧《" + toolsShow.getShowName() + "》第"
@@ -62,11 +69,22 @@ public class HisUtil {
     public void addEpisode(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
 
-        toolsHisEvent.setEventType(Meta.HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEventDate(toolsShow.getBeginDate());
         toolsHisEvent.setEvent("观看了电视剧《" + toolsShow.getShowName() + "》第"
                 + toolsShow.getShowSeason() + "季第" + toolsShow.getShowEpisode() + "集");
+
+        toolsHisEventMapper.insert(toolsHisEvent);
+    }
+
+    public void addPost(String title, Integer postId) {
+        ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
+
+        toolsHisEvent.setEventType(HIS_TYPE_POST);
+        toolsHisEvent.setKeyId(postId);
+        toolsHisEvent.setEventDate(new Date());
+        toolsHisEvent.setEvent("发布了文章《" + title + "》");
 
         toolsHisEventMapper.insert(toolsHisEvent);
     }
