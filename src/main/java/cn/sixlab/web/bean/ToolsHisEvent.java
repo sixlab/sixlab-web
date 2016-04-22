@@ -11,7 +11,7 @@ public class ToolsHisEvent {
 
     private Integer keyId;
 
-    private String eventRamark;
+    private String eventRemark;
 
     private Date eventDate;
 
@@ -47,12 +47,12 @@ public class ToolsHisEvent {
         this.keyId = keyId;
     }
 
-    public String getEventRamark() {
-        return eventRamark;
+    public String getEventRemark() {
+        return eventRemark;
     }
 
-    public void setEventRamark(String eventRamark) {
-        this.eventRamark = eventRamark;
+    public void setEventRemark(String eventRemark) {
+        this.eventRemark = eventRemark;
     }
 
     public Date getEventDate() {
