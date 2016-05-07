@@ -20,6 +20,7 @@ import cn.sixlab.web.util.Meta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -39,7 +40,12 @@ public class ShowService {
     private ToolsShowMapper toolsShowMapper;
 
     public void search(JsonMap json, String keyword) {
-        List<ToolsShow> showList = toolsShowMapper.queryKeyword(keyword);
+        List<ToolsShow> showList;
+        if(StringUtils.isEmpty(keyword)){
+            showList = toolsShowMapper.queryIng();
+        }else{
+            showList = toolsShowMapper.queryKeyword(keyword);
+        }
         int num = 0;
         if (!CollectionUtils.isEmpty(showList)) {
             num = showList.size();

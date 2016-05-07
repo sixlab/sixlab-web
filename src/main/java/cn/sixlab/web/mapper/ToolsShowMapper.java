@@ -19,4 +19,6 @@ public interface ToolsShowMapper {
     int updateByPrimaryKey(ToolsShow record);
 
     List<ToolsShow> queryKeyword(@Param("keyword") String keyword);
+
+    List<ToolsShow> queryIng();
 }
