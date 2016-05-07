@@ -242,7 +242,7 @@
                                     <tasks>
                                         <copydir
                                                 src="${project.basedir}/src/main/webapp/res"
-                                                dest="D:/soft_space/IdeaProjects/sixlab/sixlab-cdn/resources/res">
+                                                dest="D:/soft_space/sixlab-cdn/resources/res">
                                         </copydir>
                                     </tasks>
                                 </configuration>
