@@ -181,4 +181,11 @@
         tv LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%') OR
         remark LIKE concat('%',#{keyword,jdbcType=VARCHAR},'%')
     </select>
+
+    <select id="queryIng" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tools_show
+        where view_status = '20'
+    </select>
 </mapper>
