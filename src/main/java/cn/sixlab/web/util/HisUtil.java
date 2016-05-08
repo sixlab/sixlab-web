@@ -59,7 +59,7 @@ public class HisUtil {
 
         toolsHisEvent.setEventType(HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
-        toolsHisEvent.setEventDate(toolsShow.getBeginDate());
+        toolsHisEvent.setEventDate(toolsShow.getUpdateDate());
         toolsHisEvent.setEvent("开始观看电视剧《" + toolsShow.getShowName() + "》第"
                 + toolsShow.getShowSeason() + "季");
 
@@ -71,7 +71,7 @@ public class HisUtil {
 
         toolsHisEvent.setEventType(HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
-        toolsHisEvent.setEventDate(toolsShow.getBeginDate());
+        toolsHisEvent.setEventDate(toolsShow.getUpdateDate());
         toolsHisEvent.setEvent("观看了电视剧《" + toolsShow.getShowName() + "》第"
                 + toolsShow.getShowSeason() + "季第" + toolsShow.getShowEpisode() + "集");
 
