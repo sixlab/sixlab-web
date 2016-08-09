@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sixlab.web.mapper.ToolLinkItemMapper" >
+  <resultMap id="BaseResultMap" type="cn.sixlab.web.bean.ToolLinkItem" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="item_remark" property="itemRemark" jdbcType="VARCHAR" />
+    <result column="item_link" property="itemLink" jdbcType="VARCHAR" />
+    <result column="item_order" property="itemOrder" jdbcType="INTEGER" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, item_name, item_remark, item_link, item_order, group_id, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tool_link_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tool_link_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.sixlab.web.bean.ToolLinkItem" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tool_link_item (item_name, item_remark, item_link, 
+      item_order, group_id, is_deleted
+      )
+    values (#{itemName,jdbcType=VARCHAR}, #{itemRemark,jdbcType=VARCHAR}, #{itemLink,jdbcType=VARCHAR}, 
+      #{itemOrder,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{isDeleted,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.sixlab.web.bean.ToolLinkItem" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tool_link_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemName != null" >
+        item_name,
+      </if>
+      <if test="itemRemark != null" >
+        item_remark,
+      </if>
+      <if test="itemLink != null" >
+        item_link,
+      </if>
+      <if test="itemOrder != null" >
+        item_order,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemRemark != null" >
+        #{itemRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="itemLink != null" >
+        #{itemLink,jdbcType=VARCHAR},
+      </if>
+      <if test="itemOrder != null" >
+        #{itemOrder,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.sixlab.web.bean.ToolLinkItem" >
+    update tool_link_item
+    <set >
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemRemark != null" >
+        item_remark = #{itemRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="itemLink != null" >
+        item_link = #{itemLink,jdbcType=VARCHAR},
+      </if>
+      <if test="itemOrder != null" >
+        item_order = #{itemOrder,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.sixlab.web.bean.ToolLinkItem" >
+    update tool_link_item
+    set item_name = #{itemName,jdbcType=VARCHAR},
+      item_remark = #{itemRemark,jdbcType=VARCHAR},
+      item_link = #{itemLink,jdbcType=VARCHAR},
+      item_order = #{itemOrder,jdbcType=INTEGER},
+      group_id = #{groupId,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
