@@ -260,6 +260,15 @@
     <build>
         <resources>
             <resource>
+                <directory>src/main/webapp/views</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <targetPath>target/webapp/views/</targetPath>
+            </resource>
+
+            <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
