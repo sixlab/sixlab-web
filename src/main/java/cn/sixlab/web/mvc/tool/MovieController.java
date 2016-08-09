@@ -63,7 +63,6 @@ public class MovieController extends BaseController {
     @Finish
     public JsonMap search(String keyword) {
         JsonMap json = new JsonMap();
-        logger.error("\n\n\n参数:"+keyword+"\n\n\n");
 
         service.search(json, keyword);
 

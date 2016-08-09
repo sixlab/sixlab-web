@@ -43,7 +43,7 @@ public class HisController extends BaseController {
     public String index(ModelMap modelMap) {
         logger.info(">>>>>进入 Controller ");
 
-        return "/tool/his/index";
+        return "tool/his/index";
     }
 
     /**
