@@ -184,7 +184,7 @@ footer a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .2)
+    background-color: rgba(0, 0, 0, .12)
 }
 
 .hero .title {
@@ -228,7 +228,7 @@ footer a:hover {
     padding: .8em 2.6em .8em 9em;
     border-radius: 4px;
     background-color: hsla(0, 0%, 100%, .2);
-    border: 1px solid #007fff;
+    border: 1px solid #45BCF9;
     color: #fff
 }
 
@@ -258,7 +258,7 @@ footer a:hover {
 }
 
 .hero .btn-blue {
-    background-color: #007fff
+    background-color: #45BCF9
 }
 
 footer {
