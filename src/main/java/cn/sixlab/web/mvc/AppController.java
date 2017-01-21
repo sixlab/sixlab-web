@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/31)
  */
 package cn.sixlab.web.mvc;
@@ -19,7 +19,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/31)
  */
 @Controller

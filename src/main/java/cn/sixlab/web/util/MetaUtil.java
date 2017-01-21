@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/12)
  */
 package cn.sixlab.web.util;
@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
 import java.util.List;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/12)
  */
 public class MetaUtil {

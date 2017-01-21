@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/4/2)
  */
 package cn.sixlab.web.mvc.tool;
@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/4/2)
  */
 @Service
@@ -46,6 +46,7 @@ public class ShowService {
         }else{
             showList = toolsShowMapper.queryKeyword(keyword);
         }
+
         int num = 0;
         if (!CollectionUtils.isEmpty(showList)) {
             num = showList.size();

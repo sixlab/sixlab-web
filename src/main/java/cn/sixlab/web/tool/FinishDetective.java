@@ -7,7 +7,7 @@
 // * For more information, please see
 // * http://sixlab.cn/
 // *
-// * @author 六楼的雨/loki
+// * @author 六楼的雨/Patrick Root
 // * @since 1.0.0(2016/3/29)
 // */
 //package cn.sixlab.web.tool;
@@ -32,7 +32,7 @@
 //import java.util.jar.JarFile;
 //
 ///**
-// * @author 六楼的雨/loki
+// * @author 六楼的雨/Patrick Root
 // * @since 1.0.0(2016.03.29)
 // */
 //public class FinishDetective {
