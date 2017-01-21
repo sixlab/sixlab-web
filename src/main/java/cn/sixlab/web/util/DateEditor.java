@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/15)
  */
 package cn.sixlab.web.util;
@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/15)
  */
 public class DateEditor extends CustomDateEditor {

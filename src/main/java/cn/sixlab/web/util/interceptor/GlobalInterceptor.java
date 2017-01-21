@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/1/15)
  */
 public class GlobalInterceptor extends HandlerInterceptorAdapter {

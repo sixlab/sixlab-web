@@ -7,7 +7,7 @@
 // * For more information, please see
 // * http://sixlab.cn/
 // *
-// * @author 六楼的雨/loki
+// * @author 六楼的雨/Patrick Root
 // * @since 1.0.0(2016/3/14)
 // */
 //package cn.sixlab.web.util;
@@ -18,7 +18,7 @@
 //import org.apache.commons.lang3.ObjectUtils;
 //
 ///**
-// * @author 六楼的雨/loki
+// * @author 六楼的雨/Patrick Root
 // * @since 1.0.0(2016/3/14)
 // */
 //public class CacheUtil {

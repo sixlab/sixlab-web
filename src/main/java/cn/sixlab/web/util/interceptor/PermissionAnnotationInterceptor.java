@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/9)
  */
 package cn.sixlab.web.util.interceptor;
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Enumeration;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/9)
  */
 public class PermissionAnnotationInterceptor extends HandlerInterceptorAdapter {

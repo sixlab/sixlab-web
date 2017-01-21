@@ -7,7 +7,7 @@
  * For more information, please see
  * http://sixlab.cn/
  * 
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/9)
  */
 package cn.sixlab.web.util;
@@ -15,7 +15,7 @@ package cn.sixlab.web.util;
 import java.util.HashMap;
 
 /**
- * @author 六楼的雨/loki
+ * @author 六楼的雨/Patrick Root
  * @since 1.0.0(2016/3/9)
  */
 public class JsonMap extends HashMap {
