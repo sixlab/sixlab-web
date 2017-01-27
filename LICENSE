@@ -1,13 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Initial commit
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+<<<<<<< HEAD
 =======
 GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. [http://fsf.org/]
+>>>>>>> Initial commit
+=======
 >>>>>>> Initial commit
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
@@ -640,9 +646,13 @@ the "copyright" line and a pointer to where the full notice is found.
 
     {one line to give the program's name and a brief idea of what it does.}
 <<<<<<< HEAD
+<<<<<<< HEAD
     Copyright (C) {year}  {name of author}
 =======
     Copyright (C) {year}  {fullname}
+>>>>>>> Initial commit
+=======
+    Copyright (C) {year}  {name of author}
 >>>>>>> Initial commit
 
     This program is free software: you can redistribute it and/or modify
@@ -657,9 +667,13 @@ the "copyright" line and a pointer to where the full notice is found.
 
     You should have received a copy of the GNU General Public License
 <<<<<<< HEAD
+<<<<<<< HEAD
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =======
     along with this program.  If not, see [http://www.gnu.org/licenses/].
+>>>>>>> Initial commit
+=======
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 >>>>>>> Initial commit
 
 Also add information on how to contact you by electronic and paper mail.
@@ -668,9 +682,13 @@ Also add information on how to contact you by electronic and paper mail.
 notice like this when it starts in an interactive mode:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     {project}  Copyright (C) {year}  {fullname}
 =======
     sixlab-web  Copyright (C) 2016  六楼的雨
+>>>>>>> Initial commit
+=======
+    {project}  Copyright (C) {year}  {fullname}
 >>>>>>> Initial commit
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
     This is free software, and you are welcome to redistribute it
@@ -684,9 +702,13 @@ might be different; for a GUI interface, you would use an "about box".
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU GPL, see
 <<<<<<< HEAD
+<<<<<<< HEAD
 <http://www.gnu.org/licenses/>.
 =======
 [http://www.gnu.org/licenses/].
+>>>>>>> Initial commit
+=======
+<http://www.gnu.org/licenses/>.
 >>>>>>> Initial commit
 
   The GNU General Public License does not permit incorporating your program
@@ -695,7 +717,11 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <<<<<<< HEAD
+<<<<<<< HEAD
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 =======
 [http://www.gnu.org/philosophy/why-not-lgpl.html].
+>>>>>>> Initial commit
+=======
+<http://www.gnu.org/philosophy/why-not-lgpl.html>.
 >>>>>>> Initial commit
