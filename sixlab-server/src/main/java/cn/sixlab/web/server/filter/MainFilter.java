@@ -5,7 +5,14 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
+<<<<<<< HEAD
  * https://sixlab.cn/
+=======
+ * http://sixlab.cn/
+ * 
+ * @author 六楼的雨/Patrick Root
+ * @since 2.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.filter;
 
@@ -14,7 +21,12 @@ import org.nutz.mvc.ActionFilter;
 import org.nutz.mvc.View;
 
 /**
+<<<<<<< HEAD
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
+=======
+ * @author 六楼的雨/Patrick Root
+ * @since 2.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 public class MainFilter implements ActionFilter {
     @Override

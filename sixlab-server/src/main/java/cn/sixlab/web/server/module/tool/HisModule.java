@@ -5,17 +5,28 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
+<<<<<<< HEAD
  * https://sixlab.cn/
+=======
+ * http://sixlab.cn/
+ *
+ * @author 六楼的雨/Patrick Root
+ * @since 1.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.module.tool;
 
 import cn.sixlab.web.server.beans.ToolsHisEvent;
 import cn.sixlab.web.server.service.HisService;
 import cn.sixlab.web.server.util.JsonMap;
+<<<<<<< HEAD
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Condition;
 import org.nutz.dao.Dao;
 import org.nutz.dao.pager.Pager;
+=======
+import org.nutz.dao.Dao;
+>>>>>>> 初始化网站后台项目 sixlab-server
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
@@ -23,11 +34,17 @@ import org.nutz.mvc.annotation.Ok;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
 /**
  * @author <a href='https://blog.sixlab.cn/'>六楼的雨/Patrick Root</a>
+=======
+/**
+ * @author 六楼的雨/Patrick Root
+ * @since 1.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 @IocBean
 @At("/tool/his")
@@ -60,6 +77,7 @@ public class HisModule {
     
     @At("/addPost")
     @Ok("json:compact")
+<<<<<<< HEAD
     public JsonMap addPost(String title, Integer postId, Date date) {
         logger.info(">>>>>进入 Controller ");
         JsonMap jsonMap = new JsonMap();
@@ -85,6 +103,14 @@ public class HisModule {
         
         jsonMap.put("eventList", eventList);
         jsonMap.put("pager",pager);
+=======
+    public JsonMap addPost(String title, Integer postId) {
+        logger.info(">>>>>进入 Controller ");
+        JsonMap jsonMap = new JsonMap();
+        
+        hisService.addPost(title, postId);
+        
+>>>>>>> 初始化网站后台项目 sixlab-server
         return jsonMap;
     }
 }

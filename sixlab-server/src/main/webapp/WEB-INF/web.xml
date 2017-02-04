@@ -77,6 +77,10 @@
 
     <error-page>
         <error-code>500</error-code>
+<<<<<<< HEAD
         <location>/500.html</location>
+=======
+        <location>/WEB-INF/jsp/500.jsp</location>
+>>>>>>> 初始化网站后台项目 sixlab-server
     </error-page>
 </web-app>
