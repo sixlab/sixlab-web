@@ -5,7 +5,14 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
+<<<<<<< HEAD
  * https://sixlab.cn/
+=======
+ * http://sixlab.cn/
+ *
+ * @author 六楼的雨/Patrick Root
+ * @since 1.0.0(2016/4/2)
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.module.tool;
 
@@ -30,7 +37,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
+=======
+ * @author 六楼的雨/Patrick Root
+ * @since 1.0.0(2016/4/2)
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 @IocBean
 @At(value = "/tool/show")
@@ -124,6 +136,7 @@ public class ShowModule {
         return json;
     }
     
+<<<<<<< HEAD
     /**
      * 修改播放状态
      *
@@ -176,6 +189,8 @@ public class ShowModule {
      * @param id
      * @return
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     @At("/end")
     @Ok("json:compact")
     public JsonMap end(int id) {
@@ -188,11 +203,14 @@ public class ShowModule {
         return json;
     }
     
+<<<<<<< HEAD
     /**
      * 不再观看
      * @param id
      * @return
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     @At("/finish")
     @Ok("json:compact")
     public JsonMap finish(int id) {

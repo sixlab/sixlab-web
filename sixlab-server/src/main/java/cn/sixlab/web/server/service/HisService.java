@@ -5,7 +5,14 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
+<<<<<<< HEAD
  * https://sixlab.cn/
+=======
+ * http://sixlab.cn/
+ * 
+ * @author 六楼的雨/Patrick Root
+ * @since 2.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.service;
 
@@ -21,7 +28,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 /**
+<<<<<<< HEAD
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
+=======
+ * @author 六楼的雨/Patrick Root
+ * @since 2.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 @IocBean
 public class HisService {
@@ -35,11 +47,14 @@ public class HisService {
     @Inject
     protected Dao dao;
     
+<<<<<<< HEAD
     /**
      * 观看了电影
      *
      * @param toolsMovie 电视数据
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     public void sawMovie(ToolsMovie toolsMovie) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
@@ -49,11 +64,14 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+<<<<<<< HEAD
     /**
      * 开始观看新电视剧
      *
      * @param toolsShow 电视剧最新数据
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     public void beginShow(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         toolsHisEvent.setEventType(HIS_TYPE_SHOW);
@@ -63,11 +81,14 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+<<<<<<< HEAD
     /**
      * 开始观看电视剧新季
      *
      * @param toolsShow 电视剧最新数据
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     public void addSeason(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
@@ -80,11 +101,14 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+<<<<<<< HEAD
     /**
      * 观看了电视剧新的一集
      *
      * @param toolsShow 电视剧最新数据
      */
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
     public void addEpisode(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
@@ -97,6 +121,7 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+<<<<<<< HEAD
     /**
      * 发布文章事件
      *
@@ -105,15 +130,23 @@ public class HisService {
      * @param date 发布时间
      */
     public void addPost(String title, Integer postId, Date date) {
+=======
+    public void addPost(String title, Integer postId) {
+>>>>>>> 初始化网站后台项目 sixlab-server
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
         toolsHisEvent.setEventType(HIS_TYPE_POST);
         toolsHisEvent.setKeyId(postId);
+<<<<<<< HEAD
         toolsHisEvent.setEventDate(date);
+=======
+        toolsHisEvent.setEventDate(new Date());
+>>>>>>> 初始化网站后台项目 sixlab-server
         toolsHisEvent.setEvent("发布了文章《" + title + "》");
     
         dao.insert(toolsHisEvent);
     }
+<<<<<<< HEAD
     
     /**
      * 再次观看电影事件
@@ -130,4 +163,6 @@ public class HisService {
         toolsHisEvent.setEventDate(viewDate);
         dao.insert(toolsHisEvent);
     }
+=======
+>>>>>>> 初始化网站后台项目 sixlab-server
 }

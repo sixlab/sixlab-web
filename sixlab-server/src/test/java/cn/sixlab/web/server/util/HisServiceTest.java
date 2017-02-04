@@ -13,7 +13,12 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
+=======
+ * @author 六楼的雨/Patrick Root
+ * @since 2.0.0
+>>>>>>> 初始化网站后台项目 sixlab-server
  */
 public class HisServiceTest {
     

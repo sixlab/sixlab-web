@@ -301,5 +301,22 @@ typings/
 =======
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 >>>>>>> Initial commit
+<<<<<<< HEAD
 >>>>>>> Initial commit
+=======
+=======
+
+
+# 以上为默认生成的
+
+#以下为排除git和idea的设置
+.gitignore
+.idea/
+*.iml
+
+#以下为排除java的设置
+target
+>>>>>>> 初始化网站后台项目 sixlab-server
+>>>>>>> 初始化网站后台项目 sixlab-server
