@@ -14,6 +14,12 @@ hs_err_pid*
 
 # 以上为默认生成的
 
+# 以下为vue默认的
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+
 #以下为排除git和idea的设置
 .gitignore
 .idea/
