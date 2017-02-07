@@ -17,7 +17,9 @@ import org.nutz.mvc.annotation.IocBy;
 import org.nutz.mvc.annotation.Modules;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.SetupBy;
+import org.nutz.mvc.annotation.Views;
 import org.nutz.mvc.ioc.provider.ComboIocProvider;
+import org.nutz.plugins.view.freemarker.FreemarkerViewMaker;
 
 /**
  * @author 六楼的雨/Patrick Root
@@ -30,6 +32,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @Ok("json:full")
 @Fail("jsp:jsp.500")
 @Filters({@By(type=MainFilter.class)})
+@Views(value = {FreemarkerViewMaker.class})
 public class MainModule {
     
 }
