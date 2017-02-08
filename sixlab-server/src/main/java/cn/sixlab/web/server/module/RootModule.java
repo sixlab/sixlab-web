@@ -34,16 +34,9 @@ public class RootModule {
     @Inject
     protected Dao dao;
     
-    
     @At("/tool")
-    @Ok("fm:tpl.index")
+    @Ok("fm:tpl/tool")
     public void tool() {
-        
-    }
-    
-    @At("/tools")
-    @Ok("fm:/tpl/index")
-    public void tools() {
         
     }
     
