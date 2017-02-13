@@ -6,9 +6,6 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- * 
- * @author 六楼的雨/Patrick Root
- * @since 2.0.0
  */
 package cn.sixlab.web.server.util;
 
@@ -16,7 +13,6 @@ import java.util.HashMap;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 2.0.0
  */
 public class JsonMap extends HashMap {
     private boolean success = true;

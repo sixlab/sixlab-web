@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995 Sixlab. All rights reserved.
+ * Copyright (c) 2016 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
@@ -23,7 +23,6 @@ import java.util.Date;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 1.0.0(2016/1/15)
  */
 @IocBean
 @At("/tool/record")

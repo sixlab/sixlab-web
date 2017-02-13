@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 2.0.0
  */
 public class HisServiceTest {
     

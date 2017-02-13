@@ -6,9 +6,6 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- * 
- * @author 六楼的雨/Patrick Root
- * @since 1.0.0(2016/3/9)
  */
 package cn.sixlab.web.server.service.tool;
 
@@ -16,7 +13,6 @@ import org.nutz.ioc.loader.annotation.IocBean;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 1.0.0(2016/3/9)
  */
 @IocBean
 public class RecordService {
