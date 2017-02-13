@@ -6,9 +6,6 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- * 
- * @author 六楼的雨/Patrick Root
- * @since 2.0.0
  */
 package cn.sixlab.web.server.filter;
 
@@ -18,7 +15,6 @@ import org.nutz.mvc.View;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 2.0.0
  */
 public class MainFilter implements ActionFilter {
     @Override

@@ -6,9 +6,6 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- *
- * @author 六楼的雨/Patrick Root
- * @since 1.0.0(2016/4/2)
  */
 package cn.sixlab.web.server.module.tool;
 
@@ -34,7 +31,6 @@ import java.util.List;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 1.0.0(2016/4/2)
  */
 @IocBean
 @At(value = "/tool/show")

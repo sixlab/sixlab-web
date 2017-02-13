@@ -6,9 +6,6 @@
  *
  * For more information, please see
  * http://sixlab.cn/
- * 
- * @author 六楼的雨/Patrick Root
- * @since 1.0.0
  */
 package cn.sixlab.web.server.service.tool;
 
@@ -18,7 +15,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author 六楼的雨/Patrick Root
- * @since 1.0.0
  */
 @IocBean
 public class LinkService {
