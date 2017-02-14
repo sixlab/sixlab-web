@@ -11,8 +11,8 @@
  */
 package cn.sixlab.web.server.module;
 
+import cn.sixlab.web.server.service.LoginService;
 import cn.sixlab.web.server.util.JsonMap;
-import org.nutz.dao.Dao;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
@@ -30,7 +30,7 @@ public class LoginModule {
     private static Logger logger = LoggerFactory.getLogger(LoginModule.class);
     
     @Inject
-    protected Dao dao;
+    protected LoginService service;
     
     @At("/login")
     @GET
@@ -44,7 +44,7 @@ public class LoginModule {
     public JsonMap login(String username, String password) {
         JsonMap json = new JsonMap();
         
-        //service.login(json, username, password);
+        service.login(json, username, password);
         
         return json;
     }
