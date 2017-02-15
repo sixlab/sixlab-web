@@ -32,14 +32,15 @@ public class LoginModule {
     @Inject
     protected LoginService service;
     
-    @At("/login")
     @GET
+    @At("/login")
+    @Ok("->:/test.ftl")
     public String login() {
         return "login";
     }
     
-    @At("/login")
     @POST
+    @At("/login")
     @Ok("json:compact")
     public JsonMap login(String username, String password) {
         JsonMap json = new JsonMap();
@@ -57,13 +58,14 @@ public class LoginModule {
         //service.logout();
     }
     
-    @At("/change")
-    @Ok("json:compact")
-    public JsonMap change(String keyword, String value) {
-        JsonMap json = new JsonMap();
-        
-        //service.change(json, keyword, value);
-        
-        return json;
-    }
+    //
+    //@At("/change")
+    //@Ok("json:compact")
+    //public JsonMap change(String keyword, String value) {
+    //    JsonMap json = new JsonMap();
+    //
+    //    //service.change(json, keyword, value);
+    //
+    //    return json;
+    //}
 }

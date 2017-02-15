@@ -12,6 +12,7 @@ package cn.sixlab.web.server.service;
 import cn.sixlab.web.server.beans.SixlabUser;
 import cn.sixlab.web.server.util.JsonMap;
 import cn.sixlab.web.server.util.MD5Util;
+import cn.sixlab.web.server.util.UserUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
@@ -39,6 +40,7 @@ public class LoginService {
             String md5 = MD5Util.string2MD5(password);
             if(user.getPassword().equals(md5)){
                 json.setSuccess(true);
+                UserUtil.login(user);
             }else{
                 json.setMessage("密码错误");
             }
