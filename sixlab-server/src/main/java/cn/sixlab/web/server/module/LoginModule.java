@@ -34,7 +34,7 @@ public class LoginModule {
     
     @GET
     @At("/login")
-    @Ok("->:/test.ftl")
+    @Ok("->:/login.ftl")
     public String login() {
         return "login";
     }

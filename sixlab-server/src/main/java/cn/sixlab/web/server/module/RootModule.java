@@ -30,7 +30,7 @@ public class RootModule {
     protected Dao dao;
     
     @At("/tool")
-    @Ok("fm:tpl/tool")
+    @Ok("->:/tool.ftl")
     public void tool() {
         
     }
