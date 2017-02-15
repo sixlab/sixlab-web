@@ -77,6 +77,6 @@
 
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/jsp/500.jsp</location>
+        <location>/500.html</location>
     </error-page>
 </web-app>
