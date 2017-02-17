@@ -42,6 +42,7 @@ public class MovieModule {
     @Inject
     private HisService hisService;
     
+    @Ok("->:/tool/movie/index")
     @At(value = {"/", "/index"})
     public String index() {
         
