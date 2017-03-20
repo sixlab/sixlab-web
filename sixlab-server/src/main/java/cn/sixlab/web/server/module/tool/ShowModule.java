@@ -5,7 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.module.tool;
 
@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @IocBean
 @At(value = "/tool/show")
@@ -120,6 +120,53 @@ public class ShowModule {
         toolsShow.setUpdateDate(new Date());
         dao.update(toolsShow);
         hisService.addEpisode(toolsShow);
+        
+        return json;
+    }
+    
+    /**
+     * 修改播放状态
+     *
+     * @since 2.2.0
+     * @param id     电视剧的 id
+     * @param status 播放的状态
+     *               10 将播
+     *               20 正播
+     *               30 暂停
+     *               40 终止
+     * @return 处理结果
+     */
+    @At("/show/status")
+    @Ok("json:compact")
+    public JsonMap showStatus(Integer id,String status) {
+        JsonMap json = new JsonMap();
+        
+        ToolsShow toolsShow = dao.fetch(ToolsShow.class, id);
+        toolsShow.setShowStatus(status);
+        dao.update(toolsShow);
+        
+        return json;
+    }
+    
+    /**
+     * 修改观看状态
+     *
+     * @since 2.2.0
+     * @param id 电视剧的 id
+     * @param status 观看的状态
+     *               10 将看
+     *               20 正看
+     *               30 不看
+     * @return 处理结果
+     */
+    @At("/view/status")
+    @Ok("json:compact")
+    public JsonMap viewStatus(Integer id, String status) {
+        JsonMap json = new JsonMap();
+        
+        ToolsShow toolsShow = dao.fetch(ToolsShow.class, id);
+        toolsShow.setViewStatus(status);
+        dao.update(toolsShow);
         
         return json;
     }

@@ -5,14 +5,17 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.module.tool;
 
 import cn.sixlab.web.server.beans.ToolsHisEvent;
 import cn.sixlab.web.server.service.HisService;
 import cn.sixlab.web.server.util.JsonMap;
+import org.nutz.dao.Cnd;
+import org.nutz.dao.Condition;
 import org.nutz.dao.Dao;
+import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
@@ -20,8 +23,11 @@ import org.nutz.mvc.annotation.Ok;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+import java.util.List;
+
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href='https://blog.sixlab.cn/'>六楼的雨/Patrick Root</a>
  */
 @IocBean
 @At("/tool/his")
@@ -54,12 +60,31 @@ public class HisModule {
     
     @At("/addPost")
     @Ok("json:compact")
-    public JsonMap addPost(String title, Integer postId) {
+    public JsonMap addPost(String title, Integer postId, Date date) {
         logger.info(">>>>>进入 Controller ");
         JsonMap jsonMap = new JsonMap();
         
-        hisService.addPost(title, postId);
+        hisService.addPost(title, postId, date);
         
+        return jsonMap;
+    }
+    
+    @At("/select")
+    @Ok("json:compact")
+    public JsonMap select(Integer page, Integer size) {
+        logger.info(">>>>>进入 Controller ");
+        JsonMap jsonMap = new JsonMap();
+    
+        Pager pager = new Pager(page,size);
+    
+        Condition cnd = Cnd.orderBy().desc("event_date").desc("id");
+    
+        List<ToolsHisEvent> eventList = dao.query(ToolsHisEvent.class, cnd, pager);
+        int count = dao.count(ToolsHisEvent.class);
+        pager.setRecordCount(count);
+        
+        jsonMap.put("eventList", eventList);
+        jsonMap.put("pager",pager);
         return jsonMap;
     }
 }
