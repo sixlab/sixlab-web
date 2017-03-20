@@ -5,7 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.service;
 
@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @IocBean
 public class LoginService {
@@ -33,6 +33,13 @@ public class LoginService {
     @Inject
     protected Dao dao;
     
+    /**
+     * 判断用户是否可以登录，并进行登录
+     *
+     * @param json 处理结果及对应信息
+     * @param username 用户名
+     * @param password 密码
+     */
     public void login(JsonMap json, String username, String password) {
         List<SixlabUser> userList = dao.query(SixlabUser.class, Cnd.where("username", "=", username));
         if(CollectionUtils.isNotEmpty(userList)){

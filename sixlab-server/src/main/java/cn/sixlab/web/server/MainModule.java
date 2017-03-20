@@ -5,7 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server;
 
@@ -20,7 +20,7 @@ import org.nutz.mvc.annotation.SetupBy;
 import org.nutz.mvc.ioc.provider.ComboIocProvider;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @SetupBy(value = MainSetup.class)
 @IocBy(type = ComboIocProvider.class, args = {"*js", "./",

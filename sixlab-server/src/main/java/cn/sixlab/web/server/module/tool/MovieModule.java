@@ -5,7 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.module.tool;
 
@@ -26,10 +26,11 @@ import org.nutz.mvc.annotation.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
 import java.util.List;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @IocBean
 @At("/tool/movie")
@@ -58,6 +59,28 @@ public class MovieModule {
         dao.insert(toolsMovie);
         
         hisService.sawMovie(toolsMovie);
+        
+        return json;
+    }
+    
+    @At("/modify")
+    @Ok("json:compact")
+    @POST
+    public JsonMap modify(@Param("..") ToolsMovie toolsMovie) {
+        JsonMap json = new JsonMap();
+        
+        dao.updateIgnoreNull(toolsMovie);
+        
+        return json;
+    }
+    
+    @At("/review")
+    @Ok("json:compact")
+    @POST
+    public JsonMap review(Integer id, Integer movieName,Date viewDate) {
+        JsonMap json = new JsonMap();
+        
+        hisService.reViewMovie(id, movieName, viewDate);
         
         return json;
     }

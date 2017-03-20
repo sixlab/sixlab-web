@@ -5,7 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.service;
 
@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @IocBean
 public class HisService {
@@ -35,6 +35,11 @@ public class HisService {
     @Inject
     protected Dao dao;
     
+    /**
+     * 观看了电影
+     *
+     * @param toolsMovie 电视数据
+     */
     public void sawMovie(ToolsMovie toolsMovie) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
@@ -44,6 +49,11 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+    /**
+     * 开始观看新电视剧
+     *
+     * @param toolsShow 电视剧最新数据
+     */
     public void beginShow(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         toolsHisEvent.setEventType(HIS_TYPE_SHOW);
@@ -53,6 +63,11 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+    /**
+     * 开始观看电视剧新季
+     *
+     * @param toolsShow 电视剧最新数据
+     */
     public void addSeason(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
@@ -65,6 +80,11 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
+    /**
+     * 观看了电视剧新的一集
+     *
+     * @param toolsShow 电视剧最新数据
+     */
     public void addEpisode(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
@@ -77,14 +97,37 @@ public class HisService {
         dao.insert(toolsHisEvent);
     }
     
-    public void addPost(String title, Integer postId) {
+    /**
+     * 发布文章事件
+     *
+     * @param title 文章标题
+     * @param postId 文章 id
+     * @param date 发布时间
+     */
+    public void addPost(String title, Integer postId, Date date) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
         toolsHisEvent.setEventType(HIS_TYPE_POST);
         toolsHisEvent.setKeyId(postId);
-        toolsHisEvent.setEventDate(new Date());
+        toolsHisEvent.setEventDate(date);
         toolsHisEvent.setEvent("发布了文章《" + title + "》");
     
+        dao.insert(toolsHisEvent);
+    }
+    
+    /**
+     * 再次观看电影事件
+     *
+     * @param id 电影 id
+     * @param movieName 电影名称
+     * @param viewDate 观看日期
+     */
+    public void reViewMovie(Integer id, Integer movieName, Date viewDate) {
+        ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
+        toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
+        toolsHisEvent.setKeyId(id);
+        toolsHisEvent.setEvent("重温了电影《" + movieName + "》");
+        toolsHisEvent.setEventDate(viewDate);
         dao.insert(toolsHisEvent);
     }
 }

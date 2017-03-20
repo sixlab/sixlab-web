@@ -5,19 +5,22 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
- * http://sixlab.cn/
+ * https://sixlab.cn/
  */
 package cn.sixlab.web.server.util;
 
 import java.security.MessageDigest;
 
 /**
- * @author 六楼的雨/Patrick Root
+ * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 public class MD5Util {
     
-    /***
+    /**
      * MD5加码 生成32位md5码
+     *
+     * @param inStr 要被加密的字符串
+     * @return 32位md5码
      */
     public static String string2MD5(String inStr) {
         MessageDigest md5 = null;
