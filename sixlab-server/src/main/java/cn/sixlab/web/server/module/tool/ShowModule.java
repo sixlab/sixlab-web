@@ -171,6 +171,11 @@ public class ShowModule {
         return json;
     }
     
+    /**
+     * 停播
+     * @param id
+     * @return
+     */
     @At("/end")
     @Ok("json:compact")
     public JsonMap end(int id) {
@@ -183,6 +188,11 @@ public class ShowModule {
         return json;
     }
     
+    /**
+     * 不再观看
+     * @param id
+     * @return
+     */
     @At("/finish")
     @Ok("json:compact")
     public JsonMap finish(int id) {
