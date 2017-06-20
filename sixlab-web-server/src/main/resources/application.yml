@@ -1,0 +1,23 @@
+server:
+  port: 9210
+
+spring:
+  profiles:
+    active: prod
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ebidding_bidder?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    cache: false
+    check-template: true
