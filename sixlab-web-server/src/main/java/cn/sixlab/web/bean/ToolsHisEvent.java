@@ -9,15 +9,17 @@
  */
 package cn.sixlab.web.bean;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import javax.persistence.GeneratedValue;
 import java.util.Date;
 
-
 /**
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
+
+@Entity
 public class ToolsHisEvent {
 
     @Id
