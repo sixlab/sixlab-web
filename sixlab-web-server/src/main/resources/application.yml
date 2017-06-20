@@ -14,10 +14,19 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
     show-sql: true
+
   thymeleaf:
     mode: HTML5
     encoding: utf-8
     content-type: text/html
     cache: false
     check-template: true
+
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
