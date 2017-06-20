@@ -5,14 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
-<<<<<<< HEAD
  * https://sixlab.cn/
-=======
- * http://sixlab.cn/
- * 
- * @author 六楼的雨/Patrick Root
- * @since 2.0.0
->>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.module;
 
