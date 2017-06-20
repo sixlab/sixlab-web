@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
-
 /**
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */

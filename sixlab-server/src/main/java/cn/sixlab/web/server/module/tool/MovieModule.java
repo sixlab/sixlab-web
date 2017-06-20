@@ -5,14 +5,7 @@
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
-<<<<<<< HEAD
  * https://sixlab.cn/
-=======
- * http://sixlab.cn/
- *
- * @author 六楼的雨/Patrick Root
- * @since 1.0.0
->>>>>>> 初始化网站后台项目 sixlab-server
  */
 package cn.sixlab.web.server.module.tool;
 
@@ -33,19 +26,11 @@ import org.nutz.mvc.annotation.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
 /**
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
-=======
-import java.util.List;
-
-/**
- * @author 六楼的雨/Patrick Root
- * @since 2.0.0
->>>>>>> 初始化网站后台项目 sixlab-server
  */
 @IocBean
 @At("/tool/movie")
@@ -58,15 +43,6 @@ public class MovieModule {
     @Inject
     private HisService hisService;
     
-<<<<<<< HEAD
-    @Ok("->:/tool/movie/index")
-=======
->>>>>>> 初始化网站后台项目 sixlab-server
-    @At(value = {"/", "/index"})
-    public String index() {
-        
-        return "tool/movie/index";
-    }
     
     @At("/add")
     @Ok("json:compact")
@@ -81,7 +57,6 @@ public class MovieModule {
         return json;
     }
     
-<<<<<<< HEAD
     @At("/modify")
     @Ok("json:compact")
     @POST
@@ -104,8 +79,6 @@ public class MovieModule {
         return json;
     }
     
-=======
->>>>>>> 初始化网站后台项目 sixlab-server
     @At("/search")
     @Ok("json:compact")
     public JsonMap search(String keyword) {
