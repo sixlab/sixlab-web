@@ -23,7 +23,7 @@ public class ApiInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse, Object o) throws Exception {
-         System.out.println(">>> 在请求处理之前进行调用（Controller方法调用之前）");
+        System.out.println(">>> 在请求处理之前进行调用（Controller方法调用之前）");
         String username = httpServletRequest.getParameter("v-name");
         String token = httpServletRequest.getParameter("v-token");
     

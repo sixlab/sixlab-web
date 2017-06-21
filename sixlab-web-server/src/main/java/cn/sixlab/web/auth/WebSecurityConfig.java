@@ -31,6 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().sessionManagement().maximumSessions(1).expiredUrl("/expired")
                 .and()
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
+        
+        http.csrf().ignoringAntMatchers("/api/**");
     }
     
     @Override
