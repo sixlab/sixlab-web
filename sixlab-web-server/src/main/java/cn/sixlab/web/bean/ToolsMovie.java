@@ -29,7 +29,7 @@ public class ToolsMovie {
     private String remark;
     private Date viewDate;
     private String doubanKey;
-    private double doubanScore;
+    private Double doubanScore;
     private String doubanInfo;
     private String infoStatus;
 
@@ -89,11 +89,11 @@ public class ToolsMovie {
         this.doubanKey = doubanKey;
     }
 
-    public double getDoubanScore () {
+    public Double getDoubanScore () {
         return doubanScore;
     }
 
-    public void setDoubanScore(double doubanScore) {
+    public void setDoubanScore(Double doubanScore) {
         this.doubanScore = doubanScore;
     }
 
