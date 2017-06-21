@@ -31,10 +31,6 @@ public class Meta {
     public static final String SHOW_STATUS_END = "40";
     
     /**
-     * Show 观看状态 将看
-     */
-    public static final String SHOW_V_STATUS_WILL = "10";
-    /**
      * Show 观看状态 正看
      */
     public static final String SHOW_V_STATUS_ING = "20";
@@ -42,4 +38,5 @@ public class Meta {
      * Show 观看状态 不看
      */
     public static final String SHOW_V_STATUS_FINISH = "30";
+    
 }

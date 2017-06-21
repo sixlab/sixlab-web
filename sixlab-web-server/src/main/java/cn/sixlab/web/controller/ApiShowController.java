@@ -9,8 +9,6 @@ import cn.sixlab.web.util.Meta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,30 +37,92 @@ public class ApiShowController extends BaseController{
         
         List<ToolsShow> showList;
         if (StringUtils.isEmpty(keyword)) {
-            ToolsShow show = new ToolsShow();
-            show.setViewStatus(Meta.SHOW_V_STATUS_ING);
-            
-            ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
-                    .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
-                    .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
-    
-            //创建实例
-            Example<ToolsShow> ex = Example.of(show, matcher);
-            showList = showDao.findAll(ex);
+            //ToolsShow show = new ToolsShow();
+            //show.setViewStatus(Meta.SHOW_V_STATUS_ING);
+            //
+            //ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+            //        .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
+            //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+            //
+            ////创建实例
+            //Example<ToolsShow> ex = Example.of(show, matcher);
+            showList = showDao.findByViewStatus(Meta.SHOW_V_STATUS_ING);
         } else {
-            ToolsShow show = new ToolsShow();
-            show.setShowName(keyword);
-            show.setTv(keyword);
-            show.setRemark(keyword);
+            //ToolsShow show = new ToolsShow();
+            //show.setShowName(keyword);
+            //show.setTv(keyword);
+            //show.setRemark(keyword);
+            //
+            //ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+            //        .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
+            //        .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
+            //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+            //
+            ////创建实例
+            //Example<ToolsShow> ex = Example.of(show, matcher);
+            
+            showList = showDao.findByKeyword(keyword);
+        }
+        
+        int num = 0;
+        if (!CollectionUtils.isEmpty(showList)) {
+            num = showList.size();
+            json.put("shows", showList);
+        }
+        json.put("num", num);
+        
+        return json;
+    }
     
-            ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
-                    .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
-                    .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
-                    .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+    @RequestMapping("/watching")
+    public JsonModel watching(String keyword) {
+        JsonModel json = new JsonModel();
+        
+        List<ToolsShow> showList;
+        if (StringUtils.isEmpty(keyword)) {
+            //ToolsShow show = new ToolsShow();
+            //show.setViewStatus(Meta.SHOW_V_STATUS_ING);
+            //
+            //ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+            //        .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
+            //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+            //
+            ////创建实例
+            //Example<ToolsShow> ex = Example.of(show, matcher);
+            showList = showDao.findByViewStatus(Meta.SHOW_V_STATUS_ING);
+        } else {
+            
+            showList = showDao.findByStatus(keyword, Meta.SHOW_V_STATUS_ING);
+        }
+        
+        int num = 0;
+        if (!CollectionUtils.isEmpty(showList)) {
+            num = showList.size();
+            json.put("shows", showList);
+        }
+        json.put("num", num);
+        
+        return json;
+    }
     
-            //创建实例
-            Example<ToolsShow> ex = Example.of(show, matcher);
-            showList = showDao.findAll(ex);
+    @RequestMapping("/watched")
+    public JsonModel watched(String keyword) {
+        JsonModel json = new JsonModel();
+        
+        List<ToolsShow> showList;
+        if (StringUtils.isEmpty(keyword)) {
+            //ToolsShow show = new ToolsShow();
+            //show.setViewStatus(Meta.SHOW_V_STATUS_ING);
+            //
+            //ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+            //        .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
+            //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+            //
+            ////创建实例
+            //Example<ToolsShow> ex = Example.of(show, matcher);
+            showList = showDao.findByViewStatus(Meta.SHOW_V_STATUS_FINISH);
+        } else {
+            showList = showDao.findByStatus(Meta.SHOW_V_STATUS_FINISH, keyword);
         }
         
         int num = 0;

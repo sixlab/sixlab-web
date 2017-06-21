@@ -8,8 +8,6 @@ import cn.sixlab.web.util.JsonModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,24 +61,25 @@ public class ApiMovieController extends BaseController{
     public JsonModel search(String keyword) {
         JsonModel json = new JsonModel();
         
-        ToolsMovie movie = new ToolsMovie();
-        movie.setMovieName(keyword);
-        movie.setProduceYear(keyword);
-        movie.setDirector(keyword);
-        movie.setRemark(keyword);
-        movie.setDoubanKey(keyword);
-        movie.setDoubanInfo(keyword);
+        //ToolsMovie movie = new ToolsMovie();
+        //movie.setMovieName(keyword);
+        //movie.setProduceYear(keyword);
+        //movie.setDirector(keyword);
+        //movie.setRemark(keyword);
+        //movie.setDoubanKey(keyword);
+        //movie.setDoubanInfo(keyword);
+        //
+        ////创建匹配器，即如何使用查询条件
+        //ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+        //        .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
+        //        .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
+        //        //.withMatcher("address", ExampleMatcher.GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
+        //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+        //
+        //Example<ToolsMovie> ex = Example.of(movie, matcher);
     
-        //创建匹配器，即如何使用查询条件
-        ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
-                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
-                .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
-                //.withMatcher("address", ExampleMatcher.GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
-                .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
-
-        Example<ToolsMovie> ex = Example.of(movie, matcher);
-    
-        List<ToolsMovie> movieList = movieDao.findAll(ex);
+        //List<ToolsMovie> movieList = movieDao.findAll(ex);
+        List<ToolsMovie> movieList = movieDao.queryByKeyword(keyword);
         
         int num = 0;
         if (!CollectionUtils.isEmpty(movieList)) {
