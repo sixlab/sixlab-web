@@ -62,6 +62,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
-<script src="https://blog.sixlab.cn/api/get_recent_posts/?count=3&amp;callback=showPost" type="text/javascript"></script>
+<script src="https://blog.sixlab.cn/api/get_recent_posts/?count=3&callback=showPost" type="text/javascript"></script>
 </body>
 </html>

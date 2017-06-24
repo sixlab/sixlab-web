@@ -13,22 +13,6 @@ package cn.sixlab.web.util;
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 public class Meta {
-    /**
-     * Show 播放状态 将播放
-     */
-    public static final String SHOW_STATUS_WILL = "10";
-    /**
-     * Show 播放状态 正播放
-     */
-    public static final String SHOW_STATUS_ING = "20";
-    /**
-     * Show 播放状态 暂停
-     */
-    public static final String SHOW_STATUS_PENDING = "30";
-    /**
-     * Show 播放状态 完成播放
-     */
-    public static final String SHOW_STATUS_END = "40";
     
     /**
      * Show 观看状态 正看
