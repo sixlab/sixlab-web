@@ -140,8 +140,7 @@ public class ApiShowController extends BaseController{
         JsonModel json = new JsonModel();
         
         toolsShow.setViewStatus(Meta.SHOW_V_STATUS_ING);
-        toolsShow.setShowStatus(Meta.SHOW_STATUS_ING);
-        toolsShow.setUpdateDate(new Date());
+        toolsShow.setBeginDate(new Date());
         showDao.save(toolsShow);
         hisService.beginShow(toolsShow);
         
@@ -153,7 +152,6 @@ public class ApiShowController extends BaseController{
         JsonModel json = new JsonModel();
         
         ToolsShow toolsShow = showDao.findOne(id);
-        toolsShow.setShowStatus(Meta.SHOW_STATUS_ING);
         toolsShow.setShowEpisode(1);
         toolsShow.setShowSeason(toolsShow.getShowSeason() + 1);
         toolsShow.setUpdateDate(new Date());
@@ -168,34 +166,10 @@ public class ApiShowController extends BaseController{
         JsonModel json = new JsonModel();
         
         ToolsShow toolsShow = showDao.findOne(id);
-        toolsShow.setShowStatus(Meta.SHOW_STATUS_ING);
         toolsShow.setShowEpisode(toolsShow.getShowEpisode() + 1);
         toolsShow.setUpdateDate(new Date());
         showDao.save(toolsShow);
         hisService.addEpisode(toolsShow);
-        
-        return json;
-    }
-    
-    /**
-     * 修改播放状态
-     *
-     * @param id     电视剧的 id
-     * @param status 播放的状态
-     *               10 将播
-     *               20 正播
-     *               30 暂停
-     *               40 终止
-     * @return 处理结果
-     * @since 2.2.0
-     */
-    @RequestMapping("/show/status")
-    public JsonModel showStatus(Integer id, String status) {
-        JsonModel json = new JsonModel();
-        
-        ToolsShow toolsShow = showDao.findOne(id);
-        toolsShow.setShowStatus(status);
-        showDao.save(toolsShow);
         
         return json;
     }
@@ -217,23 +191,7 @@ public class ApiShowController extends BaseController{
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setViewStatus(status);
-        showDao.save(toolsShow);
-        
-        return json;
-    }
-    
-    /**
-     * 停播
-     *
-     * @param id
-     * @return
-     */
-    @RequestMapping("/end")
-    public JsonModel end(int id) {
-        JsonModel json = new JsonModel();
-        
-        ToolsShow toolsShow = showDao.findOne(id);
-        toolsShow.setShowStatus(Meta.SHOW_STATUS_END);
+        toolsShow.setUpdateDate(new Date());
         showDao.save(toolsShow);
         
         return json;
@@ -251,6 +209,7 @@ public class ApiShowController extends BaseController{
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setViewStatus(Meta.SHOW_V_STATUS_FINISH);
+        toolsShow.setUpdateDate(new Date());
         showDao.save(toolsShow);
         
         return json;

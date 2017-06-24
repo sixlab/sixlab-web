@@ -1,7 +1,7 @@
 window.contextPath = "";
 
 require.config({
-    baseUrl: resPath + 'res',
+    baseUrl: "",
     urlArgs: "v=" + resVersion,
     paths: {
         "main": "main",

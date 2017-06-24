@@ -26,13 +26,11 @@ public class ToolsShow {
     private String showName;
     private int showSeason;
     private int showEpisode;
-    private String showStatus;
     private String viewStatus;
     private String tv;
     private String remark;
     private String doubanKey;
     private Date beginDate;
-    private Date finishDate;
     private Date updateDate;
 
     public int getId () {
@@ -65,14 +63,6 @@ public class ToolsShow {
 
     public void setShowEpisode(int showEpisode) {
         this.showEpisode = showEpisode;
-    }
-
-    public String getShowStatus () {
-        return showStatus;
-    }
-
-    public void setShowStatus(String showStatus) {
-        this.showStatus = showStatus;
     }
 
     public String getViewStatus () {
@@ -113,14 +103,6 @@ public class ToolsShow {
 
     public void setBeginDate(Date beginDate) {
         this.beginDate = beginDate;
-    }
-
-    public Date getFinishDate () {
-        return finishDate;
-    }
-
-    public void setFinishDate(Date finishDate) {
-        this.finishDate = finishDate;
     }
 
     public Date getUpdateDate () {
