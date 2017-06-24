@@ -2,7 +2,6 @@ package cn.sixlab.web.interceptor;
 
 import cn.sixlab.web.bean.SixlabUser;
 import cn.sixlab.web.dao.SixlabUserDao;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -17,6 +16,9 @@ import java.io.PrintWriter;
  */
 public class ApiInterceptor implements HandlerInterceptor {
     
+    private static String vName = null;
+    private static String vToken = null;
+    
     @Autowired
     private SixlabUserDao dao;
     
@@ -27,16 +29,39 @@ public class ApiInterceptor implements HandlerInterceptor {
         String username = httpServletRequest.getParameter("v-name");
         String token = httpServletRequest.getParameter("v-token");
     
-        SixlabUser user = dao.findByUsername(username);
-        if(null!=user && StringUtils.startsWithIgnoreCase(token,user.getToken())){
-            ObjectMapper mapper = new ObjectMapper();
-            System.out.println(mapper.writeValueAsString(user));
-            return true;
+        if(vName == null){
+            SixlabUser user = dao.findByUsername(username);
+            if( null==user){
+                httpServletResponse.setCharacterEncoding("UTF-8");
+                httpServletResponse.setContentType("application/json");
+                PrintWriter writer = httpServletResponse.getWriter();
+                writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"不存在此用户\"}");
+                writer.close();
+                return false;
+            }else{
+                vName = user.getUsername();
+                vToken = user.getToken();
+            }
         }
-        PrintWriter writer = httpServletResponse.getWriter();
-        writer.write("auth");
-        writer.close();
-        return false;
+    
+        if (StringUtils.startsWithIgnoreCase(vName, username)) {
+            httpServletResponse.setCharacterEncoding("UTF-8");
+            httpServletResponse.setContentType("application/json");
+            PrintWriter writer = httpServletResponse.getWriter();
+            writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"用户名不匹配\"}");
+            writer.close();
+            return false;
+        }
+    
+        if (StringUtils.startsWithIgnoreCase(vToken, token)) {
+            httpServletResponse.setCharacterEncoding("UTF-8");
+            httpServletResponse.setContentType("application/json");
+            PrintWriter writer = httpServletResponse.getWriter();
+            writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"token 不匹配\"}");
+            writer.close();
+            return false;
+        }
+        return true;
     }
     
     @Override
