@@ -1,9 +1,19 @@
+/*
+ * Copyright (c) 2017 Sixlab. All rights reserved.
+ *
+ * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
+ * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
+ *
+ * For more information, please see
+ * https://sixlab.cn/
+ */
 package cn.sixlab.web.service;
 
 import cn.sixlab.web.bean.ToolsHisEvent;
 import cn.sixlab.web.bean.ToolsMovie;
 import cn.sixlab.web.bean.ToolsShow;
 import cn.sixlab.web.dao.ToolsHisEventDao;
+import cn.sixlab.web.util.HisType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +28,6 @@ import java.util.Date;
 public class HisEventService {
     private static Logger logger = LoggerFactory.getLogger(HisEventService.class);
     
-    //历史记录类型
-    public static String HIS_TYPE_SELF = "00";
-    public static String HIS_TYPE_MOVIE = "10";
-    public static String HIS_TYPE_SHOW = "20";
-    public static String HIS_TYPE_POST = "30";
-    
     @Autowired
     private ToolsHisEventDao hisEventDao;
     
@@ -34,7 +38,7 @@ public class HisEventService {
      */
     public void sawMovie(ToolsMovie toolsMovie) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
-        toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_MOVIE);
         toolsHisEvent.setKeyId(toolsMovie.getId());
         toolsHisEvent.setEvent("观看了电影《" + toolsMovie.getMovieName() + "》");
         toolsHisEvent.setEventDate(toolsMovie.getViewDate());
@@ -48,7 +52,7 @@ public class HisEventService {
      */
     public void beginShow(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
-        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEvent("开始观看电视剧《" + toolsShow.getShowName() + "》");
         toolsHisEvent.setEventDate(toolsShow.getBeginDate());
@@ -63,7 +67,7 @@ public class HisEventService {
     public void addSeason(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
-        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEventDate(toolsShow.getUpdateDate());
         toolsHisEvent.setEvent("开始观看电视剧《" + toolsShow.getShowName() + "》第"
@@ -80,7 +84,7 @@ public class HisEventService {
     public void addEpisode(ToolsShow toolsShow) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
-        toolsHisEvent.setEventType(HIS_TYPE_SHOW);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_SHOW);
         toolsHisEvent.setKeyId(toolsShow.getId());
         toolsHisEvent.setEventDate(toolsShow.getUpdateDate());
         toolsHisEvent.setEvent("观看了电视剧《" + toolsShow.getShowName() + "》第"
@@ -99,7 +103,7 @@ public class HisEventService {
     public void addPost(String title, Integer postId, Date date) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
         
-        toolsHisEvent.setEventType(HIS_TYPE_POST);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_POST);
         toolsHisEvent.setKeyId(postId);
         toolsHisEvent.setEventDate(date);
         toolsHisEvent.setEvent("发布了文章《" + title + "》");
@@ -116,7 +120,7 @@ public class HisEventService {
      */
     public void reViewMovie(Integer id, Integer movieName, Date viewDate) {
         ToolsHisEvent toolsHisEvent = new ToolsHisEvent();
-        toolsHisEvent.setEventType(HIS_TYPE_MOVIE);
+        toolsHisEvent.setEventType(HisType.HIS_TYPE_MOVIE);
         toolsHisEvent.setKeyId(id);
         toolsHisEvent.setEvent("重温了电影《" + movieName + "》");
         toolsHisEvent.setEventDate(viewDate);
