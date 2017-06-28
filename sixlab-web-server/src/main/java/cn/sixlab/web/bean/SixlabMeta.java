@@ -22,26 +22,26 @@ public class SixlabMeta implements Serializable{
     
     @Id
     @GeneratedValue
-    private int id;
-    private int keyId;
+    private Integer id;
+    private Integer keyId;
     private String metaKey;
     private String metaVal;
     private String metaFlag;
     private String metaRemark;
     
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
-    public int getKeyId() {
+    public Integer getKeyId() {
         return keyId;
     }
     
-    public void setKeyId(int keyId) {
+    public void setKeyId(Integer keyId) {
         this.keyId = keyId;
     }
     

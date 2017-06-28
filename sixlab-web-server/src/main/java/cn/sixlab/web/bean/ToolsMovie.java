@@ -22,7 +22,7 @@ public class ToolsMovie {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     private String movieName;
     private String produceYear;
     private String director;
@@ -33,11 +33,11 @@ public class ToolsMovie {
     private String doubanInfo;
     private String infoStatus;
 
-    public int getId () {
+    public Integer getId () {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

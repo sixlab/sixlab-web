@@ -22,10 +22,10 @@ public class ToolsShow {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     private String showName;
-    private int showSeason;
-    private int showEpisode;
+    private Integer showSeason;
+    private Integer showEpisode;
     private String viewStatus;
     private String tv;
     private String remark;
@@ -33,11 +33,11 @@ public class ToolsShow {
     private Date beginDate;
     private Date updateDate;
 
-    public int getId () {
+    public Integer getId () {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,19 +49,19 @@ public class ToolsShow {
         this.showName = showName;
     }
 
-    public int getShowSeason () {
+    public Integer getShowSeason () {
         return showSeason;
     }
 
-    public void setShowSeason(int showSeason) {
+    public void setShowSeason(Integer showSeason) {
         this.showSeason = showSeason;
     }
 
-    public int getShowEpisode () {
+    public Integer getShowEpisode () {
         return showEpisode;
     }
 
-    public void setShowEpisode(int showEpisode) {
+    public void setShowEpisode(Integer showEpisode) {
         this.showEpisode = showEpisode;
     }
 

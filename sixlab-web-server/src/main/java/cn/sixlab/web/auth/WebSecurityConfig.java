@@ -27,29 +27,29 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)//允许进入页面方法前检验
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    
+
     @Autowired
     SixlabUserDetailsService detailsService;
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/*","/pub").permitAll()
+                .antMatchers("/*", "/pub").permitAll()
                 .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .and().sessionManagement().maximumSessions(1).expiredUrl("/expired")
                 .and()
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
-        
+
         http.csrf().ignoringAntMatchers("/api/**");
     }
-    
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/css/**", "/img/**", "/js/**", "/main.js", "/logo.png", "/trd/**", "/**/favicon.ico");
         //web.ignoring().antMatchers("/res/**", "/**/favicon.ico");
     }
-    
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(detailsService).passwordEncoder(new BCryptPasswordEncoder());

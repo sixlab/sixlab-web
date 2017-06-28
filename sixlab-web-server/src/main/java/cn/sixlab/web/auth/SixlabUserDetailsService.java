@@ -29,24 +29,24 @@ import java.util.Set;
  */
 @Component
 public class SixlabUserDetailsService implements UserDetailsService{
-    
+
     @Autowired
     private SixlabUserDao sixlabUserDao;
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         if (StringUtils.isEmpty(username)) {
             throw new UsernameNotFoundException("用户名为空");
         }
-    
+
         SixlabUser user = sixlabUserDao.findByUsername(username);
         if (null == user) {
             throw new UsernameNotFoundException("用户不存在");
         }
-        
+
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("user"));
-        
+        authorities.add(new SimpleGrantedAuthority("SUPERUSER"));
+
         return new User(
                 username, user.getPassword(),
                 true,//账户可用为true
