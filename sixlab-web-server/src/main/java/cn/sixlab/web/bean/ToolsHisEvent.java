@@ -23,18 +23,18 @@ public class ToolsHisEvent {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     private String event;
     private String eventType;
-    private int keyId;
+    private Integer keyId;
     private String eventRemark;
     private Date eventDate;
 
-    public int getId () {
+    public Integer getId () {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -54,11 +54,11 @@ public class ToolsHisEvent {
         this.eventType = eventType;
     }
 
-    public int getKeyId () {
+    public Integer getKeyId () {
         return keyId;
     }
 
-    public void setKeyId(int keyId) {
+    public void setKeyId(Integer keyId) {
         this.keyId = keyId;
     }
 

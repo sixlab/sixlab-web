@@ -1,20 +1,27 @@
 server:
   port: 8888
-
 spring:
   profiles:
     active: prod
-
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sixlab?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2b8
     username: root
     password: root
-
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+  port: 8887
+  context-path: /admin
+
+
 
 #  thymeleaf:
 #    mode: HTML5
@@ -23,14 +30,9 @@ spring:
 #    cache: false
 #    check-template: true
 
-  resources:
-    chain:
-      strategy:
-        content:
-          enabled: true
-          paths: /**
-
-endpoints:
-  shutdown:
-    enabled: true
-    sensitive: false
+#  resources:
+#    chain:
+#      strategy:
+#        content:
+#          enabled: true
+#          paths: /**
