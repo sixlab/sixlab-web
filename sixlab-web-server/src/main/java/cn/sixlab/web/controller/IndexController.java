@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
-    private static Logger logger = LoggerFactory.getLogger(ApiShowController.class);
+    private static Logger logger = LoggerFactory.getLogger(IndexController.class);
     
     
     @RequestMapping(value = {"/", "/index", "/home"})
