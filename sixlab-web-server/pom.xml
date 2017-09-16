@@ -68,6 +68,12 @@
 			<optional>true</optional>
 		</dependency>
 
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -86,7 +92,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>app</finalName>
+		<finalName>server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -9,8 +9,8 @@
  */
 package cn.sixlab.web.auth;
 
-import cn.sixlab.web.bean.SixlabUser;
-import cn.sixlab.web.dao.SixlabUserDao;
+import cn.sixlab.web.bean.LabUser;
+import cn.sixlab.web.dao.LabUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -31,7 +31,7 @@ import java.util.Set;
 public class SixlabUserDetailsService implements UserDetailsService{
 
     @Autowired
-    private SixlabUserDao sixlabUserDao;
+    private LabUserDao sixlabUserDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -39,13 +39,16 @@ public class SixlabUserDetailsService implements UserDetailsService{
             throw new UsernameNotFoundException("用户名为空");
         }
 
-        SixlabUser user = sixlabUserDao.findByUsername(username);
+        LabUser user = sixlabUserDao.findByUsername(username);
         if (null == user) {
             throw new UsernameNotFoundException("用户不存在");
         }
 
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("SUPERUSER"));
+        authorities.add(new SimpleGrantedAuthority("user"));
+        if("root".equals(username)){
+            authorities.add(new SimpleGrantedAuthority("SUPER"));
+        }
 
         return new User(
                 username, user.getPassword(),

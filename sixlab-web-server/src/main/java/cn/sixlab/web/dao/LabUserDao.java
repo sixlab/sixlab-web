@@ -9,13 +9,14 @@
  */
 package cn.sixlab.web.dao;
 
-import cn.sixlab.web.bean.SixlabMeta;
+import cn.sixlab.web.bean.LabUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Created by patrick on 2017/6/20.
  */
-public interface SixlabMetaDao extends JpaRepository<SixlabMeta, Integer> {
-
-    SixlabMeta queryByMetaKey(String key);
+public interface LabUserDao extends JpaRepository<LabUser, Integer> {
+    
+    //@Query("select u from SixlabUser u where u.username = ?1 ")
+    LabUser findByUsername(String username);
 }

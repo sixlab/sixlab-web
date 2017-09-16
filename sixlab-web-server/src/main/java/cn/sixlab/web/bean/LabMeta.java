@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @Entity
-public class SixlabMeta implements Serializable{
+public class LabMeta implements Serializable{
     
     @Id
     @GeneratedValue

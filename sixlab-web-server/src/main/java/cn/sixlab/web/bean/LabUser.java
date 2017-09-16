@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
  */
 @Entity
-public class SixlabUser {
+public class LabUser {
     
     @Id
     @GeneratedValue
@@ -25,6 +25,15 @@ public class SixlabUser {
     private String username;
     private String password;
     private String token;
+    private String flag;
+    
+    public String getFlag() {
+        return flag;
+    }
+    
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
     
     public Integer getId() {
         return id;

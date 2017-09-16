@@ -1,5 +1,7 @@
 server:
   port: 8888
+  error:
+    include-stacktrace: always
 spring:
   profiles:
     active: prod
@@ -18,9 +20,16 @@ security:
 management:
   security:
     enabled: false
-  port: 8887
+    roles: SUPER
   context-path: /admin
-
+endpoints:
+  enabled: false
+  sensitive: true
+  shutdown:
+    enabled: true
+    sensitive: false
+logging:
+  level: debug
 
 
 #  thymeleaf:
