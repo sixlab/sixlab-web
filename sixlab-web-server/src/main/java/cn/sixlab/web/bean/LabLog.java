@@ -1,11 +1,14 @@
-/*
- * Copyright (c) 2016 Sixlab. All rights reserved.
+/**
+ * Copyright (c) 2017 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
  *
  * For more information, please see
  * https://sixlab.cn/
+ *
+ * @time: 2017
+ * @author: Patrick <root@sixlab.cn>
  */
 package cn.sixlab.web.bean;
 
@@ -15,9 +18,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import java.io.Serializable;
 
-/**
- * @author <a href="https://blog.sixlab.cn/">六楼的雨/Patrick Root</a>
- */
 @Entity
 public class LabLog implements Serializable{
     

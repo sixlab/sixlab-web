@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2017 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
@@ -6,6 +6,9 @@
  *
  * For more information, please see
  * https://sixlab.cn/
+ *
+ * @time: 2017/6/20
+ * @author: Patrick <root@sixlab.cn>
  */
 package cn.sixlab.web.service;
 
@@ -21,9 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * Created by patrick on 2017/6/20.
- */
 @Service
 public class HisEventService {
     private static Logger logger = LoggerFactory.getLogger(HisEventService.class);
