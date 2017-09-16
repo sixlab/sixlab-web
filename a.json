@@ -1,0 +1,18 @@
+{
+  flag
+  =,
+  code
+  =
+  0,
+  shows
+  =
+  [{id=107, showName=宕机异次元, showSeason=1, showEpisode=3, viewStatus=20, tv=null, remark=<别名>：次元出错, 404空间, 错误次元, 错乱次元, doubanKey=26727278, beginDate=1492876800000, updateDate=1492897785000}, {id=111, showName=美国众神, showSeason=1, showEpisode=8, viewStatus=20, tv=null, remark=导演：大卫·斯雷德, 克雷格·卓贝, 文森佐·纳塔利, 亚当·肯恩, 弗洛莉娅·塞吉斯蒙迪;<别名>：美国神祗, doubanKey=6308210, beginDate=1497024000000, updateDate=1498671749000}, {id=113, showName=杀不死, showSeason=1, showEpisode=2, viewStatus=20, tv=null, remark=导演：李洪绸, 邢冬冬;, doubanKey=26772013, beginDate=1498320000000, updateDate=1498334566000}],
+  success
+  =
+  true,
+  num
+  =
+  3,
+  message
+  =
+}

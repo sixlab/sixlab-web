@@ -9,7 +9,7 @@
  */
 package cn.sixlab.web.controller;
 
-import cn.sixlab.web.dao.SixlabMetaDao;
+import cn.sixlab.web.dao.LabMetaDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class WxMiniController {
     private static Logger logger = LoggerFactory.getLogger(WxMiniController.class);
     
     @Autowired
-    private SixlabMetaDao metaDao;
+    private LabMetaDao metaDao;
     
     @RequestMapping("/push")
     public String push(String echostr) {

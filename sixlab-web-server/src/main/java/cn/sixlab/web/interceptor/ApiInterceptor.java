@@ -9,8 +9,8 @@
  */
 package cn.sixlab.web.interceptor;
 
-import cn.sixlab.web.bean.SixlabUser;
-import cn.sixlab.web.dao.SixlabUserDao;
+import cn.sixlab.web.bean.LabUser;
+import cn.sixlab.web.dao.LabUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -29,7 +29,7 @@ public class ApiInterceptor implements HandlerInterceptor {
     private static String vToken = null;
     
     @Autowired
-    private SixlabUserDao dao;
+    private LabUserDao dao;
     
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest,
@@ -38,8 +38,13 @@ public class ApiInterceptor implements HandlerInterceptor {
         String username = httpServletRequest.getParameter("v-name");
         String token = httpServletRequest.getParameter("v-token");
     
+        System.out.println(username);
+        System.out.println(token);
+    
+        System.out.println("--------");
+    
         if(vName == null){
-            SixlabUser user = dao.findByUsername(username);
+            LabUser user = dao.findByUsername(username);
             if( null==user){
                 httpServletResponse.setCharacterEncoding("UTF-8");
                 httpServletResponse.setContentType("application/json");
@@ -53,7 +58,10 @@ public class ApiInterceptor implements HandlerInterceptor {
             }
         }
     
-        if (StringUtils.startsWithIgnoreCase(vName, username)) {
+        System.out.println(vName);
+        System.out.println(vToken);
+        
+        if (!StringUtils.startsWithIgnoreCase(vName, username)) {
             httpServletResponse.setCharacterEncoding("UTF-8");
             httpServletResponse.setContentType("application/json");
             PrintWriter writer = httpServletResponse.getWriter();
@@ -62,7 +70,7 @@ public class ApiInterceptor implements HandlerInterceptor {
             return false;
         }
     
-        if (StringUtils.startsWithIgnoreCase(vToken, token)) {
+        if (!StringUtils.startsWithIgnoreCase(vToken, token)) {
             httpServletResponse.setCharacterEncoding("UTF-8");
             httpServletResponse.setContentType("application/json");
             PrintWriter writer = httpServletResponse.getWriter();

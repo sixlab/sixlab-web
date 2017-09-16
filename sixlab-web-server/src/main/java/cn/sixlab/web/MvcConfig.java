@@ -10,8 +10,11 @@
 package cn.sixlab.web;
 
 import cn.sixlab.web.interceptor.ApiInterceptor;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -39,5 +42,14 @@ public class MvcConfig extends WebMvcConfigurerAdapter{
     @Bean
     public ApiInterceptor getApiInterceptor(){
         return new ApiInterceptor();
+    }
+    
+    @Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+        return container -> {
+            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/error/404"));
+            container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500"));
+            container.addErrorPages(new ErrorPage(Throwable.class, "/error/500"));
+        };
     }
 }

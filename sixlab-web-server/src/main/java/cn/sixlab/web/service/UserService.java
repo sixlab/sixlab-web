@@ -9,8 +9,8 @@
  */
 package cn.sixlab.web.service;
 
-import cn.sixlab.web.bean.SixlabUser;
-import cn.sixlab.web.dao.SixlabUserDao;
+import cn.sixlab.web.bean.LabUser;
+import cn.sixlab.web.dao.LabUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +23,9 @@ import java.util.List;
 public class UserService {
     
     @Autowired
-    private SixlabUserDao userDao;
+    private LabUserDao userDao;
     
-    public List<SixlabUser> findAll() {
+    public List<LabUser> findAll() {
         return userDao.findAll();
     }
 }
