@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2017 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
@@ -6,6 +6,9 @@
  *
  * For more information, please see
  * https://sixlab.cn/
+ *
+ * @time: 2017/6/21
+ * @author: Patrick <root@sixlab.cn>
  */
 package cn.sixlab.web.controller;
 
@@ -15,9 +18,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * Created by patrick on 2017/6/21.
- */
 @Controller
 public class IndexController {
     private static Logger logger = LoggerFactory.getLogger(IndexController.class);

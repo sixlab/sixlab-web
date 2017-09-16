@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2017 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
@@ -6,6 +6,9 @@
  *
  * For more information, please see
  * https://sixlab.cn/
+ *
+ * @time: 2017/6/20
+ * @author: Patrick <root@sixlab.cn>
  */
 package cn.sixlab.web.annotation;
 
@@ -14,9 +17,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * Created by patrick on 2017/6/20.
- */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApiAuth {

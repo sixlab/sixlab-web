@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2017 Sixlab. All rights reserved.
  *
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
@@ -6,6 +6,9 @@
  *
  * For more information, please see
  * https://sixlab.cn/
+ *
+ * @time: 2017/6/20
+ * @author: Patrick <root@sixlab.cn>
  */
 package cn.sixlab.web.controller;
 
@@ -26,9 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by patrick on 2017/6/20.
- */
 @RestController
 @RequestMapping("/api/show")
 public class ApiShowController extends BaseController{
