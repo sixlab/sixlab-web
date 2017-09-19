@@ -14,13 +14,13 @@ package cn.sixlab.web.util;
 
 import java.util.HashMap;
 
-public class JsonModel extends HashMap {
+public class RespJson extends HashMap {
     private boolean success = true;
     private String flag;
     private String message;
     private int code;
     
-    public JsonModel() {
+    public RespJson() {
         setSuccess(true);
         setMessage("");
         setFlag("");
@@ -61,5 +61,16 @@ public class JsonModel extends HashMap {
     public void setMessage(String message) {
         put("message", message);
         this.message = message;
+    }
+    
+    public void setErrorMessage(String message) {
+        setSuccess(false);
+        setMessage(message);
+    }
+    
+    public void setErrorMessage(String message, int code) {
+        setSuccess(false);
+        setMessage(message);
+        setCode(code);
     }
 }
