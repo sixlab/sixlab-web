@@ -1,22 +1,22 @@
 /**
  * Copyright (c) 2017 Sixlab. All rights reserved.
- *
+ * <p>
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
- *
+ * <p>
  * For more information, please see
  * https://sixlab.cn/
  *
  * @time: 2017/6/20
  * @author: Patrick <root@sixlab.cn>
  */
-package cn.sixlab.web.controller;
+package cn.sixlab.web.controller.api.show;
 
 import cn.sixlab.web.bean.ToolsShow;
 import cn.sixlab.web.dao.ToolsShowDao;
 import cn.sixlab.web.service.HisEventService;
 import cn.sixlab.web.util.BaseController;
-import cn.sixlab.web.util.JsonModel;
+import cn.sixlab.web.util.RespJson;
 import cn.sixlab.web.util.Meta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/show")
-public class ApiShowController extends BaseController{
+public class ApiShowController extends BaseController {
     private static Logger logger = LoggerFactory.getLogger(ApiShowController.class);
     
     @Autowired
@@ -41,8 +41,8 @@ public class ApiShowController extends BaseController{
     private HisEventService hisService;
     
     @RequestMapping("/search")
-    public JsonModel search(String keyword) {
-        JsonModel json = new JsonModel();
+    public RespJson search(String keyword) {
+        RespJson json = new RespJson();
         
         List<ToolsShow> showList;
         if (StringUtils.isEmpty(keyword)) {
@@ -84,8 +84,8 @@ public class ApiShowController extends BaseController{
     }
     
     @RequestMapping("/watching")
-    public JsonModel watching(String keyword) {
-        JsonModel json = new JsonModel();
+    public RespJson watching(String keyword) {
+        RespJson json = new RespJson();
         
         List<ToolsShow> showList;
         if (StringUtils.isEmpty(keyword)) {
@@ -115,8 +115,8 @@ public class ApiShowController extends BaseController{
     }
     
     @RequestMapping("/watched")
-    public JsonModel watched(String keyword) {
-        JsonModel json = new JsonModel();
+    public RespJson watched(String keyword) {
+        RespJson json = new RespJson();
         
         List<ToolsShow> showList;
         if (StringUtils.isEmpty(keyword)) {
@@ -145,8 +145,8 @@ public class ApiShowController extends BaseController{
     }
     
     @RequestMapping("/add")
-    public JsonModel add(ToolsShow toolsShow) {
-        JsonModel json = new JsonModel();
+    public RespJson add(ToolsShow toolsShow) {
+        RespJson json = new RespJson();
         
         toolsShow.setViewStatus(Meta.SHOW_V_STATUS_ING);
         toolsShow.setBeginDate(new Date());
@@ -157,8 +157,8 @@ public class ApiShowController extends BaseController{
     }
     
     @RequestMapping("/season/add")
-    public JsonModel seasonAdd(int id) {
-        JsonModel json = new JsonModel();
+    public RespJson seasonAdd(int id) {
+        RespJson json = new RespJson();
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setShowEpisode(1);
@@ -171,8 +171,8 @@ public class ApiShowController extends BaseController{
     }
     
     @RequestMapping("/episode/add")
-    public JsonModel episodeAdd(int id) {
-        JsonModel json = new JsonModel();
+    public RespJson episodeAdd(int id) {
+        RespJson json = new RespJson();
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setShowEpisode(toolsShow.getShowEpisode() + 1);
@@ -195,8 +195,8 @@ public class ApiShowController extends BaseController{
      * @since 2.2.0
      */
     @RequestMapping("/view/status")
-    public JsonModel viewStatus(Integer id, String status) {
-        JsonModel json = new JsonModel();
+    public RespJson viewStatus(Integer id, String status) {
+        RespJson json = new RespJson();
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setViewStatus(status);
@@ -213,8 +213,8 @@ public class ApiShowController extends BaseController{
      * @return
      */
     @RequestMapping("/finish")
-    public JsonModel finish(int id) {
-        JsonModel json = new JsonModel();
+    public RespJson finish(int id) {
+        RespJson json = new RespJson();
         
         ToolsShow toolsShow = showDao.findOne(id);
         toolsShow.setViewStatus(Meta.SHOW_V_STATUS_FINISH);

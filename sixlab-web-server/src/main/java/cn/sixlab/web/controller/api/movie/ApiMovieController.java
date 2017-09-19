@@ -1,22 +1,22 @@
 /**
  * Copyright (c) 2017 Sixlab. All rights reserved.
- *
+ * <p>
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
- *
+ * <p>
  * For more information, please see
  * https://sixlab.cn/
  *
  * @time: 2017/6/20
  * @author: Patrick <root@sixlab.cn>
  */
-package cn.sixlab.web.controller;
+package cn.sixlab.web.controller.api.movie;
 
 import cn.sixlab.web.bean.ToolsMovie;
 import cn.sixlab.web.dao.ToolsMovieDao;
 import cn.sixlab.web.service.HisEventService;
 import cn.sixlab.web.util.BaseController;
-import cn.sixlab.web.util.JsonModel;
+import cn.sixlab.web.util.RespJson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/movie")
-public class ApiMovieController extends BaseController{
+public class ApiMovieController extends BaseController {
     private static Logger logger = LoggerFactory.getLogger(ApiMovieController.class);
     
     @Autowired
@@ -39,9 +39,9 @@ public class ApiMovieController extends BaseController{
     private HisEventService hisService;
     
     @RequestMapping("/add")
-    public JsonModel add(ToolsMovie toolsMovie) {
-        JsonModel json = new JsonModel();
-    
+    public RespJson add(ToolsMovie toolsMovie) {
+        RespJson json = new RespJson();
+        
         movieDao.save(toolsMovie);
         hisService.sawMovie(toolsMovie);
         
@@ -49,17 +49,17 @@ public class ApiMovieController extends BaseController{
     }
     
     @RequestMapping("/modify")
-    public JsonModel modify(ToolsMovie toolsMovie) {
-        JsonModel json = new JsonModel();
-    
+    public RespJson modify(ToolsMovie toolsMovie) {
+        RespJson json = new RespJson();
+        
         movieDao.save(toolsMovie);
         
         return json;
     }
     
     @RequestMapping("/review")
-    public JsonModel review(Integer id, Integer movieName, Date viewDate) {
-        JsonModel json = new JsonModel();
+    public RespJson review(Integer id, Integer movieName, Date viewDate) {
+        RespJson json = new RespJson();
         
         hisService.reViewMovie(id, movieName, viewDate);
         
@@ -67,9 +67,10 @@ public class ApiMovieController extends BaseController{
     }
     
     @RequestMapping("/search")
-    public JsonModel search(String keyword) {
-        JsonModel json = new JsonModel();
-        
+    public RespJson search(String keyword) {
+        RespJson json = new RespJson();
+    
+    
         //ToolsMovie movie = new ToolsMovie();
         //movie.setMovieName(keyword);
         //movie.setProduceYear(keyword);
@@ -86,7 +87,7 @@ public class ApiMovieController extends BaseController{
         //        .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
         //
         //Example<ToolsMovie> ex = Example.of(movie, matcher);
-    
+        
         //List<ToolsMovie> movieList = movieDao.findAll(ex);
         List<ToolsMovie> movieList = movieDao.queryByKeyword(keyword);
         

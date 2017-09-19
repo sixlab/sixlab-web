@@ -1,9 +1,9 @@
 /**
  * Copyright (c) 2017 Sixlab. All rights reserved.
- *
+ * <p>
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
- *
+ * <p>
  * For more information, please see
  * https://sixlab.cn/
  *
@@ -31,7 +31,7 @@ public class WxUtil {
         String result = null;
         try {
             result = InputStreamUtil.readString(is);
-            logger.info("微信推送消息："+result);
+            logger.info("微信推送消息：" + result);
         } catch (IOException e) {
             e.printStackTrace();
         }

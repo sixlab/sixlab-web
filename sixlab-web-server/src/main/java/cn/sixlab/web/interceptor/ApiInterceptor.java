@@ -1,9 +1,9 @@
 /**
  * Copyright (c) 2017 Sixlab. All rights reserved.
- *
+ * <p>
  * Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
  * see http://www.gnu.org/licenses/gpl-3.0-standalone.html
- *
+ * <p>
  * For more information, please see
  * https://sixlab.cn/
  *
@@ -12,10 +12,9 @@
  */
 package cn.sixlab.web.interceptor;
 
-import cn.sixlab.web.bean.LabUser;
-import cn.sixlab.web.dao.LabUserDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
+import cn.sixlab.web.util.RespJson;
+import cn.sixlab.web.util.JsonUtl;
+import cn.sixlab.web.util.UserCache;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,57 +24,31 @@ import java.io.PrintWriter;
 
 public class ApiInterceptor implements HandlerInterceptor {
     
-    private static String vName = null;
-    private static String vToken = null;
-    
-    @Autowired
-    private LabUserDao dao;
-    
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse, Object o) throws Exception {
         System.out.println(">>> 在请求处理之前进行调用（Controller方法调用之前）");
-        String username = httpServletRequest.getParameter("v-name");
-        String token = httpServletRequest.getParameter("v-token");
-    
-        System.out.println(username);
-        System.out.println(token);
-    
-        System.out.println("--------");
-    
-        if(vName == null){
-            LabUser user = dao.findByUsername(username);
-            if( null==user){
-                httpServletResponse.setCharacterEncoding("UTF-8");
-                httpServletResponse.setContentType("application/json");
-                PrintWriter writer = httpServletResponse.getWriter();
-                writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"不存在此用户\"}");
-                writer.close();
-                return false;
-            }else{
-                vName = user.getUsername();
-                vToken = user.getToken();
-            }
-        }
-    
-        System.out.println(vName);
-        System.out.println(vToken);
         
-        if (!StringUtils.startsWithIgnoreCase(vName, username)) {
-            httpServletResponse.setCharacterEncoding("UTF-8");
-            httpServletResponse.setContentType("application/json");
-            PrintWriter writer = httpServletResponse.getWriter();
-            writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"用户名不匹配\"}");
-            writer.close();
-            return false;
+        String accessToken = httpServletRequest.getHeader("accessToken");
+        
+        
+        RespJson model = new RespJson();
+        if (accessToken == null) {
+            model.setErrorMessage("没有 Token", 10000);
         }
-    
-        if (!StringUtils.startsWithIgnoreCase(vToken, token)) {
+        
+        if (null == UserCache.get(accessToken)) {
+            model.setErrorMessage("登录失效", 10001);
+        }
+        
+        if (!model.isSuccess()) {
             httpServletResponse.setCharacterEncoding("UTF-8");
             httpServletResponse.setContentType("application/json");
+            
             PrintWriter writer = httpServletResponse.getWriter();
-            writer.write("{\"success\":false,\"code\":0,\"flag\":\"\",\"message\":\"token 不匹配\"}");
+            writer.write(JsonUtl.toJSon(model));
             writer.close();
+            
             return false;
         }
         return true;

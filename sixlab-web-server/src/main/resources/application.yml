@@ -16,7 +16,7 @@ spring:
     show-sql: true
 security:
   basic:
-    enabled: false
+    enabled: true
 management:
   security:
     enabled: false
