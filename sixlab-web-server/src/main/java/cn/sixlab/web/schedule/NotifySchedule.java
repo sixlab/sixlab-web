@@ -14,9 +14,10 @@ package cn.sixlab.web.schedule;
 
 import cn.sixlab.web.bean.LabNotify;
 import cn.sixlab.web.dao.LabNotifyDao;
+import cn.sixlab.web.service.WxService;
+import cn.sixlab.web.util.ConfigVal;
 import cn.sixlab.web.util.JsonUtl;
 import cn.sixlab.web.util.WxMpMessage;
-import cn.sixlab.web.util.WxUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -32,6 +33,10 @@ public class NotifySchedule {
 
     @Autowired
     private LabNotifyDao labNotifyDao;
+    @Autowired
+    private WxService wxService;
+    @Autowired
+    private ConfigVal configVal;
 
     @Scheduled(cron = "0 0 6,18 * * ? ")
     public void notifyUser() {
@@ -47,7 +52,6 @@ public class NotifySchedule {
         if (null!=notifyList && notifyList.size()>1) {
             for (LabNotify labNotify : notifyList) {
                 if(today.isBefore(labNotify.getRepeatFinish())){
-                    boolean notify = false;
 
                     int day = 0;
                     switch (labNotify.getRepeatType()){
@@ -60,7 +64,10 @@ public class NotifySchedule {
                     }
 
                     if(labNotify.getRepeatTime().contains(","+day+",")){
+                        String wxAccessToken = wxService.getToken();
+                        String myOpenId = configVal.getWxMyOpenId();
 
+                        WxMpMessage.sendCustomTextMsg(wxAccessToken,myOpenId, labNotify.getNotifyName()+"\n"+labNotify.getNotifyDetail());
                     }
                 }else{
                     labNotify.setActive(false);
