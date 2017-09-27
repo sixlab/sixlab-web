@@ -10,7 +10,7 @@
  * @time: 2017/6/21
  * @author: Patrick <root@sixlab.cn>
  */
-package cn.sixlab.web.controller;
+package cn.sixlab.web.controller.wx;
 
 import cn.sixlab.web.dao.LabMetaDao;
 import org.slf4j.Logger;
