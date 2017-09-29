@@ -11,25 +11,6 @@
     <name>sixlab-web-server</name>
     <description>Demo project for Spring Boot</description>
 
-    <repositories>
-        <repository>
-            <id>getui-nexus</id>
-            <url>http://mvn.gt.igexin.com/nexus/content/repositories/releases/</url>
-        </repository>
-        <repository>
-            <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -105,11 +86,11 @@
             <version>3.8.1</version>
         </dependency>
 
-        <!-- 个推 -->
+        <!-- 极光推送 -->
         <dependency>
-            <groupId>com.gexin.platform</groupId>
-            <artifactId>gexin-rp-sdk-http</artifactId>
-            <version>4.0.1.9</version>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jpush-client</artifactId>
+            <version>3.3.2</version>
         </dependency>
 
         <dependency>
